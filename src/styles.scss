@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 html{
   font-size: 62.5%;
-  box-sizing: border-box;
   font-family: 'Alice', serif;
+  color: #fff;
 }
 
 body{
   font-size: 1.6rem;
+  background-color: rgba($color: #090909, $alpha: 1);
 }
