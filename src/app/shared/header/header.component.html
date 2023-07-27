@@ -1,36 +1,63 @@
 <header class="header__container">
-
   <div class="header-content">
     <div class="header-logo">
       <picture>
-        <img src="https://i.postimg.cc/gJbbFfbW/Marvel-Logo.png" alt="Marvel Universe Logo">
+        <img
+          src="https://i.postimg.cc/gJbbFfbW/Marvel-Logo.png"
+          alt="Marvel Universe Logo"
+        />
       </picture>
     </div>
 
     <div class="header-menu">
-      <button>
-        <i class="fa-solid" (click)="isMenuBarOpen = !isMenuBarOpen" [ngClass]="isMenuBarOpen ? 'fa-bars' : 'fa-xmark'"></i>
+      <button aria-label="Show/Hide Menu">
+        <i
+          class="fa-solid"
+          (click)="isMenuBarOpen = !isMenuBarOpen"
+          [ngClass]="isMenuBarOpen ? 'fa-bars' : 'fa-xmark'"
+        ></i>
       </button>
     </div>
   </div>
 
-  <nav class="header-routes" [ngClass]="!isMenuBarOpen ? 'show-header-routes' : ''">
+  <nav
+    class="header-routes"
+    [ngClass]="!isMenuBarOpen ? 'show-header-routes' : ''"
+  >
     <ul>
-      <li routerLink="/Heroes/Home" routerLinkActive="active-route"><img class="active-route-icon" src="../../../assets/img/active-route-icon.svg" alt="Active route icon"> HOME <span class="active-route-border"></span></li>
-      <li routerLink="/Heroes/Characters" routerLinkActive="active-route"><img class="active-route-icon" src="../../../assets/img/active-route-icon.svg" alt="Active route icon"> CHARACTERS <span class="active-route-border"></span></li>
+      <li routerLink="/Heroes/Home" routerLinkActive="active-route">
+        <img
+          class="active-route-icon"
+          src="../../../assets/img/active-route-icon.svg"
+          alt="Active route icon"
+        />
+        HOME <span class="active-route-border"></span>
+      </li>
+      <li routerLink="/Heroes/Characters" routerLinkActive="active-route">
+        <img
+          class="active-route-icon"
+          src="../../../assets/img/active-route-icon.svg"
+          alt="Active route icon"
+        />
+        CHARACTERS <span class="active-route-border"></span>
+      </li>
     </ul>
 
     <div class="social-media-contact">
-        <a href="https://github.com/Eddy-glitcher"
+      <a
+        href="https://github.com/Eddy-glitcher"
         target="_blank"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/luis-edier-aguirre-tabares-7a453b259/"
-        target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
+        aria-label="See my Github"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/luis-edier-aguirre-tabares-7a453b259/"
+        target="_blank"
+        aria-label="See my Linkedin"
+      >
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
     </div>
   </nav>
-
 </header>
