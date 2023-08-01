@@ -19,3 +19,31 @@ img{
   width: 100%;
   height: 100%;
 }
+
+.owl-carousel .owl-nav{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 45%;
+  padding: 0px;
+  width: 100%;
+
+  .owl-prev,.owl-next {
+    background-color: $primary-color-medium;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 2.0rem;
+  }
+
+  .owl-prev:hover,.owl-next:hover {
+    background-color: $primary-color;
+  }
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  background: $primary-color-medium;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: $primary-color-light;
+}
