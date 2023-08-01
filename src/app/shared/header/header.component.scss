@@ -48,6 +48,7 @@
   visibility: hidden;
   background-color: $primary-background-dark;
   transition: opacity 0.5s ease-in-out;
+  z-index: 2;
 
   li{
     @include displayElements(flex, center, unset);
