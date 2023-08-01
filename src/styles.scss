@@ -20,6 +20,13 @@ img{
   height: 100%;
 }
 
+.max-width-content{
+  width: 95%;
+  max-width: 1250px;
+  margin: 0px auto;
+  padding: 30px 10px;
+}
+
 .owl-carousel .owl-nav{
   display: flex;
   justify-content: space-between;
