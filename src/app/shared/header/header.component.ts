@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent{
 
-  isMenuBarOpen : boolean = true;
+  isMenuBarOpen : boolean = false;
+
+  @ViewChild('menuOptions') menuOptions!: ElementRef<HTMLElement>;
+  @HostListener('document:click', ['$event.target'])
+  // To hide the nav options if the user clicks outside the navBar
+  onClick(targetElement : Node): void {
+    const clickedInside = this.menuOptions.nativeElement.contains(targetElement);
+    if (!clickedInside && this.isMenuBarOpen) {
+      this.isMenuBarOpen = !this.isMenuBarOpen;
+    }
+  }
+
 }

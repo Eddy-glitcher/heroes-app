@@ -1,4 +1,4 @@
-<section class="header__container">
+<section class="header__container" #menuOptions>
   <div class="header-content">
     <div class="header-logo">
       <picture>
@@ -14,7 +14,7 @@
         <i
           class="fa-solid"
           (click)="isMenuBarOpen = !isMenuBarOpen"
-          [ngClass]="isMenuBarOpen ? 'fa-bars' : 'fa-xmark'"
+          [ngClass]="isMenuBarOpen ? 'fa-xmark' : 'fa-bars'"
         ></i>
       </button>
     </div>
@@ -22,10 +22,12 @@
 
   <nav
     class="header-routes"
-    [ngClass]="!isMenuBarOpen ? 'show-header-routes' : ''"
+    [ngClass]="isMenuBarOpen ? 'show-header-routes' : ''"
   >
     <ul>
-      <li routerLink="/Heroes/Home" routerLinkActive="active-route">
+      <li routerLink="/Heroes/Home" routerLinkActive="active-route"
+      (click)="isMenuBarOpen = !isMenuBarOpen"
+      >
         <img
           class="active-route-icon"
           src="../../../assets/img/active-route-icon.svg"
@@ -33,7 +35,9 @@
         />
         HOME <span class="active-route-border"></span>
       </li>
-      <li routerLink="/Heroes/Characters" routerLinkActive="active-route">
+      <li routerLink="/Heroes/Characters" routerLinkActive="active-route"
+      (click)="isMenuBarOpen = !isMenuBarOpen"
+      >
         <img
           class="active-route-icon"
           src="../../../assets/img/active-route-icon.svg"
