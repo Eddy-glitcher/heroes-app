@@ -26,7 +26,7 @@
 }
 
 .header-menu{
-  font-size: 45px;
+  font-size: $font-size-icon-md;
 
   button{
     color: $primary-color-medium;
@@ -34,7 +34,7 @@
   }
 
   .fa-xmark{
-    font-size: 50px;
+    font-size: $font-size-icon-lg;
   }
 
 }
@@ -55,7 +55,7 @@
     position: relative;
     padding: 30px 0px;
     color: $primary-color-light;
-    font-size: $font-size-heading-1;
+    font-size: $font-size-title-lg;
     text-shadow: 0px 0px 4px $color-grey-light;
     background-color: $primary-background-light;
   }
@@ -91,7 +91,7 @@
     @include displayElements(flex, center, center);
     gap: 15px;
     padding: 20px;
-    font-size: 30px;
+    font-size: $font-size-icon;
     height: 100%;
 
     .fa-brands{
