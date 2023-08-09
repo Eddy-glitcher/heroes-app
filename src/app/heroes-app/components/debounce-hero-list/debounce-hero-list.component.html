@@ -1,14 +1,13 @@
 <div class="hero-searchbar">
   <form action="" autocomplete="off" [formGroup]="heroForm">
     <label for="search-hero" [ngClass]="isFocused ? 'focused-border' : ''">
-
-        <button aria-label="Search Hero" class="search-hero-button" type="button"
-        >
-          <i
-          class="fa-solid fa-magnifying-glass"
-          [ngClass]="isFocused ? 'active-icon' : ''"
-          ></i>
-        </button>
+      <button aria-label="Search Hero" class="search-hero-button" type="button"
+      >
+        <i
+        class="fa-solid fa-magnifying-glass"
+        [ngClass]="isFocused ? 'active-icon' : ''"
+        ></i>
+      </button>
 
       <input
         formControlName="name"
@@ -51,9 +50,7 @@
         <path d="M8.16699 12.541L8.87533 10.291L7.04199 8.83268H9.33366L10.0003 6.79102L10.7087 8.83268H13.042L11.2087 10.291L11.8753 12.4993L10.0003 11.166L8.16699 12.541Z" fill="#CFD8DC"/>
         <path d="M9.99935 1.66602C5.37435 1.66602 1.66602 5.37435 1.66602 9.99935C1.66602 14.6243 5.37435 18.3327 9.99935 18.3327C14.6243 18.3327 18.3327 14.6243 18.3327 9.99935C18.3327 5.37435 14.6243 1.66602 9.99935 1.66602Z" fill="#1B1616" fill-opacity="0.5"/>
         </svg>
-
         Searching...
-
       </li>
     </ul>
   </div>

@@ -5,50 +5,47 @@
   margin: 0px auto;
 
   label{
-    height: 40px;
-    display: flex;
-    place-items: center;
-    justify-content: space-between;
     position: relative;
-    box-sizing: border-box;
-    border: solid 2px $primary-color-dark;
+    @include displayElements(flex,space-between,center);
+    height: 40px;
     border-radius: 5px;
+    border: solid 2px $primary-color-dark;
     overflow: hidden;
     transition: border-color 300ms ease-in-out;
   }
 
   button{
-    padding: 10px;
-    height: 99%;
-    color: $primary-color-dark;
-    cursor: pointer;
-    z-index: 1;
-    outline: none;
-    border: solid 1px transparent;
     display: flex;
     place-content: center;
+    height: 99%;
+    padding: 10px;
+    color: $primary-color-dark;
+    border: solid 1px transparent;
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
   }
 
   button:focus-visible{
-    border: solid 1px #795b26;
+    border: solid 1px $secundary-color-light;
   }
 
   .search-hero-button{
-    background-color: $primary-background-dark;
     border-radius: 3px 0px 0px 3px;
+    background-color: $primary-background-dark;
 
     i{
       transition: color 300ms ease-in-out;
     }
 
     &:hover i{
-      color: #795b26;
+      color: $secundary-color-light;
     }
   }
 
   .search-hero-button:hover{
     i{
-      color: #795b26;
+      color: $secundary-color-light;
     }
   }
 
@@ -57,17 +54,17 @@
     width: 100%;
     height: 100%;
     padding-left:45px;
-    overflow: hidden;
-    outline: none;
     color: $color-grey;
     background-color: $primary-background-medium;
+    outline: none;
+    overflow: hidden;
   }
 
   .searchbar-hero-clean{
-    overflow: hidden;
-    background-color: $primary-background-medium;
-    color: #795b26;
     border-radius: 0px 3px 3px 0px;
+    color: $secundary-color-light;
+    background-color: $primary-background-medium;
+    overflow: hidden;
   }
 
   .show-clean-icon{
@@ -75,55 +72,43 @@
   }
 
   .hide-clean-icon{
-    animation: hide-clean-icon 300ms ease-in-out forwards;
+    opacity: 0;
+    display: none;
   }
 
   @keyframes show-clean-icon {
-    0%{
+    from{
       opacity: 0;
     }
-    100%{
+    to{
       opacity: 1;
-    }
-  }
-
-  @keyframes hide-clean-icon {
-    0%{
-      opacity: 1;
-    }
-    90%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 0;
-      display: none;
     }
   }
 
   .focused-border{
-    border-color: #795b26;
+    border-color: $secundary-color-light;
   }
 
   .active-icon{
-    color: #795b26;
+    color: $secundary-color-light;
   }
 
-
   .hero-searchbar-options{
-    background-color: #1E2328;
-    border-radius: 0px 0px 10px 10px;
-    overflow: hidden;
     margin-top: -5px;
     padding-top: 5px;
+    background-color: $color-blue-dark;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
 
     li{
+      color: $color-grey-light;
       padding: 10px;
       font-size: $font-size-title-md;
     }
 
     li:hover{
       cursor: pointer;
-      background-color: #232A30;
+      background-color: $color-blue-md;
     }
 
     .hero-searchbar-loader{
@@ -145,7 +130,7 @@
       }
     }
 
-    .hero-searchbar-loader:hover{
+    .hero-searchbar-not-found-message:hover, .hero-searchbar-loader:hover{
       cursor: default;
       background-color: transparent;
     }
