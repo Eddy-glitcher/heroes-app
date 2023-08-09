@@ -6,18 +6,22 @@ import { HeroesAppRoutingModule } from './heroes-app-routing.module';
 import { HeroSliderComponent } from './components/hero-slider/hero-slider.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NgOptimizedImage } from '@angular/common';
+import { DebounceHeroListComponent } from './components/debounce-hero-list/debounce-hero-list.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     CharactersPageComponent,
     HeroSliderComponent,
+    DebounceHeroListComponent,
   ],
   imports: [
     CommonModule,
     HeroesAppRoutingModule,
     CarouselModule,
     NgOptimizedImage,
+    ReactiveFormsModule
   ]
 })
 export class HeroesAppModule { }

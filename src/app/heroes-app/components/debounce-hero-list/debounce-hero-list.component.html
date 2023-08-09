@@ -1,0 +1,60 @@
+<div class="hero-searchbar">
+  <form action="" autocomplete="off" [formGroup]="heroForm">
+    <label for="search-hero" [ngClass]="isFocused ? 'focused-border' : ''">
+
+        <button aria-label="Search Hero" class="search-hero-button" type="button"
+        >
+          <i
+          class="fa-solid fa-magnifying-glass"
+          [ngClass]="isFocused ? 'active-icon' : ''"
+          ></i>
+        </button>
+
+      <input
+        formControlName="name"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+        maxlength="25"
+        type="text"
+        id="search-hero"
+        placeholder="Search Hero"
+        (input)="validateEmptyFormField('name')"
+      />
+
+      <button aria-label="Clean Searchbox" class="searchbar-hero-clean" type="button"  [ngClass]="isFormFieldEmpty ? 'show-clean-icon' : 'hide-clean-icon'" (click)="cleanFormField('name')">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </button>
+    </label>
+  </form>
+
+  <div class="hero-searchbar-options">
+    <ul>
+      <li>Spiderman</li>
+      <li>Spiderman</li>
+      <li>Spiderman</li>
+      <li>Spiderman</li>
+      <li class="hero-searchbar-not-found-message">¡ This character doesn't exist !</li>
+      <li class="hero-searchbar-loader">
+        <svg width="25" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.99935 1.66602C5.37435 1.66602 1.66602 5.37435 1.66602 9.99935C1.66602 14.6243 5.37435 18.3327 9.99935 18.3327C14.6243 18.3327 18.3327 14.6243 18.3327 9.99935C18.3327 5.37435 14.6243 1.66602 9.99935 1.66602Z" fill="#D32F2F"/>
+        <path d="M4.125 4.125C3.625 4.625 3.20833 5.16667 2.875 5.75L10 10L5.70833 2.875C5.125 3.20833 4.58333 3.625 4.125 4.125Z" fill="#E53935"/>
+        <path d="M10 10L14.2917 17.125C14.875 16.7917 15.4167 16.375 15.9167 15.875C16.4167 15.375 16.8333 14.8333 17.1667 14.25L10 10Z" fill="#E53935"/>
+        <path d="M9.99967 16.6673C6.33301 16.6673 3.33301 13.6673 3.33301 10.0007C3.33301 6.33398 6.33301 3.33398 9.99967 3.33398C13.6663 3.33398 16.6663 6.33398 16.6663 10.0007C16.6663 13.6673 13.6663 16.6673 9.99967 16.6673Z" fill="#CFD8DC"/>
+        <path d="M10.0003 9.99935L6.58366 4.29102C6.12533 4.58268 5.70866 4.87435 5.29199 5.29102C4.87533 5.70768 4.58366 6.12435 4.29199 6.58268L10.0003 9.99935Z" fill="#FAFAFA"/>
+        <path d="M14.7083 14.7083C15.0833 14.3333 15.4167 13.875 15.7083 13.4167L10 10L13.4167 15.7083C13.875 15.4167 14.3333 15.125 14.7083 14.7083Z" fill="#FAFAFA"/>
+        <path d="M10 5C7.20833 5 5 7.20833 5 10C5 12.7917 7.20833 15 10 15C12.7917 15 15 12.7917 15 10C15 7.20833 12.7917 5 10 5Z" fill="#D32F2F"/>
+        <path d="M13.5417 13.5417C13.8333 13.25 14.0833 12.9167 14.2917 12.5833L10 10L12.5833 14.2917C12.9167 14.0833 13.25 13.8333 13.5417 13.5417Z" fill="#E53935"/>
+        <path d="M9.99967 10.0007L7.41634 5.70898C7.08301 5.91732 6.74967 6.16732 6.45801 6.45898C6.16634 6.75065 5.91634 7.08398 5.70801 7.41732L9.99967 10.0007Z" fill="#E53935"/>
+        <path d="M10.0003 13.3327C8.16699 13.3327 6.66699 11.8327 6.66699 9.99935C6.66699 8.16602 8.16699 6.66602 10.0003 6.66602C11.8337 6.66602 13.3337 8.16602 13.3337 9.99935C13.3337 11.8327 11.8337 13.3327 10.0003 13.3327Z" fill="#1565C0"/>
+        <path d="M12.375 12.375C12.5833 12.1667 12.75 11.9583 12.875 11.75L10 10L11.7083 12.875C11.9583 12.7083 12.1667 12.5417 12.375 12.375Z" fill="#2F76C7"/>
+        <path d="M10.0003 10L8.29199 7.125C8.04199 7.25 7.83366 7.41667 7.66699 7.625C7.45866 7.83333 7.29199 8.04167 7.16699 8.25L10.0003 10Z" fill="#2F76C7"/>
+        <path d="M8.16699 12.541L8.87533 10.291L7.04199 8.83268H9.33366L10.0003 6.79102L10.7087 8.83268H13.042L11.2087 10.291L11.8753 12.4993L10.0003 11.166L8.16699 12.541Z" fill="#CFD8DC"/>
+        <path d="M9.99935 1.66602C5.37435 1.66602 1.66602 5.37435 1.66602 9.99935C1.66602 14.6243 5.37435 18.3327 9.99935 18.3327C14.6243 18.3327 18.3327 14.6243 18.3327 9.99935C18.3327 5.37435 14.6243 1.66602 9.99935 1.66602Z" fill="#1B1616" fill-opacity="0.5"/>
+        </svg>
+
+        Searching...
+
+      </li>
+    </ul>
+  </div>
+</div>
