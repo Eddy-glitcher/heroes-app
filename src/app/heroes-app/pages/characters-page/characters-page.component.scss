@@ -125,6 +125,23 @@
   }
 }
 
+.characters-cards-background{
+  background: linear-gradient(180deg, #0E1010 0%, #1E2228 100%);
+
+  .characters-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .hero-searchbar-title{
+      color: $primary-color-light;
+      text-align: center;
+      font-size: $font-size-title-md;
+    }
+  }
+}
+
+
 @media (min-width: 840px) {
 
   .characters-movie-bar {
@@ -155,4 +172,11 @@
       }
     }
   }
+
+  .characters-cards{
+    .hero-searchbar-title{
+      font-size: $font-size-title-lg;
+    }
+  }
+
 }
