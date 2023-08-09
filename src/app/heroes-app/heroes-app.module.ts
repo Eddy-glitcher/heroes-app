@@ -5,7 +5,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HeroesAppRoutingModule } from './heroes-app-routing.module';
 import { HeroSliderComponent } from './components/hero-slider/hero-slider.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { NgOptimizedImage } from '@angular/common'
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { NgOptimizedImage } from '@angular/common'
     CommonModule,
     HeroesAppRoutingModule,
     CarouselModule,
-    NgOptimizedImage
+    NgOptimizedImage,
   ]
 })
 export class HeroesAppModule { }
