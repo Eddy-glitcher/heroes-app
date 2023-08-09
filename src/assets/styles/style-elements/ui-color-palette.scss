@@ -1,15 +1,23 @@
 // Background Colors
 $primary-background         : rgba(0, 0, 0, 0.796);
 $primary-background-light   : #0E0F10;
+$primary-background-medium  : #111111;
 $primary-background-dark    : rgba(0, 0, 0, 1);
 
 // General Colors
 $primary-color              : #C8AA6E;
 $primary-color-light        : #F0E6D2;
 $primary-color-medium       : #C89B3C;
+$primary-color-dark         : #42331A;
+$secundary-color            : rgba(255, 169, 66, 0.25);
 
 $color-grey                 : #5B5A56;
 $color-grey-light           : rgba(244, 239, 239, 0.548);
 $color-grey-medium          : #3C3C41;
 $color-white                : #fff;
+$color-blue                 : #1DA5B4;
+
+// Gradients
+$primary-radial-gradient    : radial-gradient(82.53% 82.53% at 50.00% 91.99%, rgba(4, 18, 37, 0.708) 44.09%, rgba(0, 0, 0, 0.79) 100%);
+$primary-linear-gradient    : linear-gradient(170deg, #34c1e8 0, #13a0fe 25%, #1ea9f3 50%, #0084e4 75%, #0062d5 100%);
 $primary-active-color-route : linear-gradient(180deg, #231F20 0%, rgba(34, 34, 34, 0.00) 100%);
