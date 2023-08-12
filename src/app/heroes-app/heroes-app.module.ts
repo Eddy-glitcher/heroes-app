@@ -8,6 +8,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NgOptimizedImage } from '@angular/common';
 import { DebounceHeroListComponent } from './components/debounce-hero-list/debounce-hero-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CharactersPageComponent,
     HeroSliderComponent,
     DebounceHeroListComponent,
+    HeroCardComponent,
   ],
   imports: [
     CommonModule,
