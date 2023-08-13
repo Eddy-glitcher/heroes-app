@@ -1,11 +1,13 @@
 @import '../../../../assets/styles/general-styles.scss';
 
 .hero-searchbar{
+  position: relative;
   max-width: 700px;
   margin: 0px auto;
 
   label{
     position: relative;
+    z-index: 1;
     @include displayElements(flex,space-between,center);
     height: 40px;
     border-radius: 5px;
@@ -94,6 +96,8 @@
   }
 
   .hero-searchbar-options{
+    position: absolute;
+    width: 100%;
     margin-top: -5px;
     padding-top: 5px;
     background-color: $color-blue-dark;
