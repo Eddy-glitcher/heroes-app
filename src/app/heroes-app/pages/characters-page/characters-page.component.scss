@@ -2,6 +2,9 @@
 
 .characters-background-container {
   height: auto;
+}
+
+.characters-stats-container {
   padding: 50px 0px;
   background: $primary-radial-gradient, url('https://i.postimg.cc/kgSDYLG5/soldier-background.jpg') no-repeat center;
   background-size: cover;
@@ -125,18 +128,30 @@
   }
 }
 
-.characters-cards-background{
-  background: linear-gradient(180deg, #0E1010 0%, #1E2228 100%);
+.characters-cards-background {
+  background: $tertiary-linear-gradient;
 
-  .characters-cards{
+  .characters-cards {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    .hero-searchbar-title{
+    .character-searchbar-title {
       color: $primary-color-light;
       text-align: center;
       font-size: $font-size-title-md;
+    }
+
+    .hero-searchbar {
+      z-index: 3;
+    }
+
+    .characters-cards-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-rows: repeat(4, auto);
+      place-content: center;
+      gap: 20px;
     }
   }
 }
@@ -173,9 +188,39 @@
     }
   }
 
-  .characters-cards{
-    .hero-searchbar-title{
+  .characters-cards {
+    .hero-searchbar-title {
       font-size: $font-size-title-lg;
+    }
+
+    .characters-cards-container {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+}
+
+@media (min-width: 1140px) {
+  .characters-stats-container {
+    padding: 0px;
+    background: none;
+    background-size: none;
+  }
+
+  .characters-background-container {
+    padding: 50px 0px;
+    background: $primary-radial-gradient, url('https://i.postimg.cc/kgSDYLG5/soldier-background.jpg') no-repeat center;
+    background-size: cover;
+  }
+
+  .characters-cards-background {
+    background: none;
+  }
+
+  .characters-cards {
+    .characters-cards-container {
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: repeat(1, auto);
     }
   }
 
