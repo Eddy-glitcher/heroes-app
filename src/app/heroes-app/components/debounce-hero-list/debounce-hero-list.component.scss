@@ -9,7 +9,7 @@
     position: relative;
     z-index: 1;
     @include displayElements(flex,space-between,center);
-    height: 40px;
+    height: 45px;
     border-radius: 5px;
     border: solid 2px $primary-color-dark;
     overflow: hidden;
@@ -19,7 +19,8 @@
   button{
     display: flex;
     place-content: center;
-    height: 99%;
+    place-items: center;
+    height: 100%;
     padding: 10px;
     color: $primary-color-dark;
     border: solid 1px transparent;
