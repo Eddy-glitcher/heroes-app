@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/general-styles.scss';
+
+html{
+  font-size: 62.5%;
+  font-family: $font-family-base;
+}
+
+body{
+  color: #fff;
+  font-size: 1.6rem;
+  background-color: rgba($color: #090909, $alpha: 1);
+}
+
+ul{
+  list-style: none;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.max-width-content{
+  width: 95%;
+  max-width: 1250px;
+  margin: 0px auto;
+  padding: 30px 10px;
+}
+
+.owl-carousel .owl-nav{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 45%;
+  padding: 0px;
+  width: 100%;
+
+  .owl-prev,.owl-next {
+    background-color: $primary-color-medium;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 2.0rem;
+  }
+
+  .owl-prev:hover,.owl-next:hover {
+    background-color: $primary-color;
+  }
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  background: $primary-color-medium;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: $primary-color-light;
+}

@@ -1,0 +1,230 @@
+@import '../../../../assets/styles/general-styles.scss';
+
+.characters-background-container {
+  height: auto;
+}
+
+.characters-stats-container {
+  padding: 50px 0px;
+  background: $primary-radial-gradient, url('https://i.postimg.cc/kgSDYLG5/soldier-background.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.characters-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.characters-item-stat {
+  margin: 0px auto;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 5px;
+  opacity: 0.7;
+  border: solid 1px $primary-color-dark;
+  background-color: $primary-background-medium;
+}
+
+.characters-movie-bar {
+  padding: 15px 15px 60px 15px;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-title-lg;
+  }
+}
+
+.movie-progressbar-contanier {
+  .movie-progressbar-goals {
+    position: relative;
+    left: 10px;
+    padding: 10px 10px;
+    font-size: $font-size-title-sm;
+    text-align: right;
+    color: $primary-color-medium;
+
+    span {
+      display: block;
+    }
+  }
+
+  .movie-progressbar {
+    padding: 8px;
+    background-color: $primary-background-medium;
+    transform: skew(-12deg);
+    -webkit-transform: skew(-12deg);
+    -moz-transform: skew(-12deg);
+    box-shadow: 0 0 7px $secundary-color,
+      0 0 4px $secundary-color,
+      0 0 7px $secundary-color
+  }
+
+  .movie-progressbar-stats {
+    position: relative;
+    background-color: $color-white;
+    transform: skew(-6deg);
+    -webkit-transform: skew(-6deg);
+    -moz-transform: skew(-6deg);
+
+    .movie-progressbar-decoration {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: 100%;
+      width: 100%;
+
+      li {
+        width: 100%;
+        height: 15px;
+        border-right: solid 1px $primary-background-dark;
+        content: '';
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+    }
+
+    .movie-progressbar-stat {
+      width: 70%;
+      height: 15px;
+      text-align: right;
+      background: $primary-linear-gradient;
+
+      .movie-progressbar-elements {
+        position: relative;
+        top: 35px;
+        left: 10px;
+        margin-bottom: 40px;
+        font-size: $font-size-title-sm;
+        color: $color-blue;
+
+        span {
+          display: block;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.characters-movie-poster {
+  width: 100%;
+  height: 200px;
+  max-height: 230px;
+  overflow: hidden;
+
+  picture {
+    img {
+      opacity: 0.7;
+      object-fit: cover;
+      transition: opacity 300ms ease-in-out;
+    }
+
+    img:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.characters-cards-background {
+  background: $tertiary-linear-gradient;
+
+  .characters-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .character-searchbar-title {
+      color: $primary-color-light;
+      text-align: center;
+      font-size: $font-size-title-md;
+    }
+
+    .hero-searchbar {
+      z-index: 3;
+    }
+
+    .characters-cards-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-rows: repeat(4, auto);
+      place-content: center;
+      gap: 20px;
+    }
+  }
+}
+
+
+@media (min-width: 840px) {
+
+  .characters-movie-bar {
+    h2 {
+      font-size: $font-size-title-xl;
+    }
+  }
+
+  .characters-movie-poster {
+    height: auto;
+  }
+
+  .characters-stats-container{
+    padding: 120px 0px;
+    .characters-stats {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .movie-progressbar-contanier {
+    .movie-progressbar-goals {
+      font-size: $font-size-title-md;
+    }
+
+    .movie-progressbar-stats {
+      .movie-progressbar-stat {
+        .movie-progressbar-elements {
+          font-size: $font-size-title-md;
+        }
+      }
+    }
+  }
+
+  .characters-cards {
+    .hero-searchbar-title {
+      font-size: $font-size-title-lg;
+    }
+
+    .characters-cards-container {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+}
+
+@media (min-width: 1140px) {
+  .characters-stats-container {
+    padding: 0px;
+    background: none;
+    background-size: none;
+  }
+
+  .characters-background-container {
+    padding: 50px 0px;
+    background: $primary-radial-gradient, url('https://i.postimg.cc/kgSDYLG5/soldier-background.jpg') no-repeat center;
+    background-size: cover;
+  }
+
+  .characters-cards-background {
+    background: none;
+  }
+
+  .characters-cards {
+    .characters-cards-container {
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: repeat(1, auto);
+    }
+  }
+
+}

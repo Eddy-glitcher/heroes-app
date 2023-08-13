@@ -1,0 +1,20 @@
+<section class="slider-container">
+  <owl-carousel-o [options]="heroSliderOPtions" class="carrousel-images-container" #owlCar>
+
+    <ng-container *ngFor="let hero of heroImageList" class="hero-image-container">
+      <ng-template carouselSlide>
+        <figure class="{{hero.id}}">
+          <img ngSrc="{{hero.imageUrl}}" width="300" height="550" alt="{{hero.alt}}">
+          <figcaption>
+            <div>
+              <div>
+                <h3>{{hero.name}}</h3>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</section>

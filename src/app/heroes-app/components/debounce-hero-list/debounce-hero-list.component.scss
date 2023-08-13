@@ -1,0 +1,143 @@
+@import '../../../../assets/styles/general-styles.scss';
+
+.hero-searchbar{
+  position: relative;
+  max-width: 700px;
+  margin: 0px auto;
+
+  label{
+    position: relative;
+    z-index: 1;
+    @include displayElements(flex,space-between,center);
+    height: 45px;
+    border-radius: 5px;
+    border: solid 2px $primary-color-dark;
+    overflow: hidden;
+    transition: border-color 300ms ease-in-out;
+  }
+
+  button{
+    display: flex;
+    place-content: center;
+    place-items: center;
+    height: 100%;
+    padding: 10px;
+    color: $primary-color-dark;
+    border: solid 1px transparent;
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
+  }
+
+  button:focus-visible{
+    border: solid 1px $secundary-color-light;
+  }
+
+  .search-hero-button{
+    border-radius: 3px 0px 0px 3px;
+    background-color: $primary-background-dark;
+
+    i{
+      transition: color 300ms ease-in-out;
+    }
+
+    &:hover i{
+      color: $secundary-color-light;
+    }
+  }
+
+  .search-hero-button:hover{
+    i{
+      color: $secundary-color-light;
+    }
+  }
+
+  input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-left:45px;
+    color: $color-grey;
+    background-color: $primary-background-medium;
+    outline: none;
+    overflow: hidden;
+  }
+
+  .searchbar-hero-clean{
+    border-radius: 0px 3px 3px 0px;
+    color: $secundary-color-light;
+    background-color: $primary-background-medium;
+    overflow: hidden;
+  }
+
+  .show-clean-icon{
+    animation: show-clean-icon 300ms ease-in-out forwards;
+  }
+
+  .hide-clean-icon{
+    opacity: 0;
+    display: none;
+  }
+
+  @keyframes show-clean-icon {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+
+  .focused-border{
+    border-color: $secundary-color-light;
+  }
+
+  .active-icon{
+    color: $secundary-color-light;
+  }
+
+  .hero-searchbar-options{
+    position: absolute;
+    width: 100%;
+    margin-top: -5px;
+    padding-top: 5px;
+    background-color: $color-blue-dark;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+
+    li{
+      color: $color-grey-light;
+      padding: 10px;
+      font-size: $font-size-title-md;
+    }
+
+    li:hover{
+      cursor: pointer;
+      background-color: $color-blue-md;
+    }
+
+    .hero-searchbar-loader{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      // svg{
+      //   // animation: rotating-animation 1s infinite linear;
+      // }
+
+      @keyframes rotating-animation {
+        from{
+          transform: rotate(0deg);
+        }
+        to{
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    .hero-searchbar-not-found-message:hover, .hero-searchbar-loader:hover{
+      cursor: default;
+      background-color: transparent;
+    }
+  }
+}

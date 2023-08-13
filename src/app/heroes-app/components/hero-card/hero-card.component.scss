@@ -1,0 +1,139 @@
+@import '../../../../assets/styles/general-styles.scss';
+
+.hero-card-container{
+  width: max-content;
+  background: $secondary-linear-gradient;
+  border-radius: 5px;
+  border: solid 2px $color-grey-medium;
+}
+
+.hero-card{
+  @include displayElements(flex,space-between,center);
+  flex-direction: column;
+  width: 248px;
+  height: 448px;
+  padding: 25px 0px;
+  background: url('https://i.postimg.cc/kXvJ6Vx0/hero-card-background.png') center no-repeat;
+  background-size: cover;
+
+  .hero-name{
+    display: flex;
+    gap: 20px;
+    font-size: $font-size-title-md;
+
+    h3{
+      color: $primary-color-light;
+    }
+  }
+
+  .hero-image{
+    position: relative;
+    @include displayElements(flex,center,center);
+    flex-direction: column;
+    place-content: center;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+
+    .hero-image-background{
+      position: absolute;
+      left: 11px;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transition: opacity,transform 300ms ease-in-out;
+    }
+
+    .hero-image-poster{
+      position: absolute;
+      @include displayElements(flex,center,center);
+      place-content: center;
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+      border: solid 2px $color-blue;
+      background-color: $color-blue-dark;
+      z-index: 1;
+      overflow: hidden;
+
+      .hero-full-info{
+        position: absolute;
+        color: $primary-color-light;
+        font-size: $font-size-title-lg;
+        z-index: 2;
+        opacity: 0;
+        background-color: transparent;
+        cursor: pointer;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      img{
+        opacity: 1;
+        object-fit: cover;
+        transition: opacity 300ms ease-in-out;
+      }
+    }
+  }
+
+  .hero-comics-movies{
+    ul{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li{
+      @include displayElements(flex,center,center);
+      gap: 20px;
+      width: 160px;
+      padding: 10px;
+      color: $primary-color-light;
+      border-radius: 5px;
+      border: solid 1px $color-grey ;
+      font-size: $font-size-title-md;
+      background-color: $color-blue-dark;
+
+      span{
+        font-size:  $font-size-title-xl;
+      }
+    }
+  }
+}
+
+.hero-card:hover{
+
+  .hero-image-background{
+    opacity: 0.9;
+    transform: rotate(20deg) scale(1.1);
+  }
+
+  .hero-image{
+
+    .hero-image-poster{
+      .hero-full-info{
+        opacity: 1;
+      }
+
+      .hero-full-info::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: $primary-color-medium;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease-out;
+      }
+
+      .hero-full-info:hover::before {
+        width: 100%;
+      }
+
+      img{
+        opacity: 0.3;
+      }
+    }
+  }
+
+}
