@@ -87,10 +87,10 @@
     }
 
     .movie-progressbar-stat {
-      width: 70%;
       height: 15px;
       text-align: right;
       background: $primary-linear-gradient;
+      animation: progressbar-animated 600ms linear forwards;
 
       .movie-progressbar-elements {
         position: relative;
@@ -106,6 +106,16 @@
         }
       }
     }
+
+    @keyframes progressbar-animated {
+      from{
+        width: 0%;
+      }
+      to{
+        width: 70%;
+      }
+    }
+
   }
 }
 
