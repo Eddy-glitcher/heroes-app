@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeroImages } from '../../interfaces/hero-images';
+import { HeroeImages } from '../../interfaces/heroe-images';
 
 @Component({
   selector: 'app-home-page',
@@ -8,7 +8,7 @@ import { HeroImages } from '../../interfaces/hero-images';
 })
 export class HomePageComponent {
 
-  heroImageList: HeroImages[] = [
+  heroImageList: HeroeImages[] = [
     { id: 'first-hero-image' , name: 'Spiderman', alt: 'Spiderman Image', imageUrl: 'https://i.postimg.cc/QdB5wbCH/Spiderman.jpg' },
     { id: 'second-hero-image', name: 'Iron Man' , alt: 'Iron Man Image' , imageUrl: 'https://i.postimg.cc/XJ9bXTvt/Iron-Man.jpg'  },
     { id: 'third-hero-image' , name: 'Deadpool' , alt: 'Deadpool Image' , imageUrl: 'https://i.postimg.cc/zBYZh8V8/Deadpool.jpg'  },
