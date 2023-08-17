@@ -2,7 +2,7 @@
   <div class="hero-card">
 
     <div class="hero-name">
-      <svg width="32" height="19" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="40" height="35" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M16.347 17.5006H0V18.012H16.8521L16.8623 16.7285H16.3521L16.347 17.5006Z" fill="url(#paint0_linear_2551_120)"/>
         <path d="M30.5304 0.591797C23.015 0.591797 16.8518 6.48763 16.3926 13.9022H16.9028C17.362 6.76887 23.2957 1.10314 30.5304 1.10314H31.3467V0.591797H30.5304Z" fill="url(#paint1_linear_2551_120)"/>
         <path d="M5.08003 18.2877L3 18.2307L6.11502 14.9634H18.4193C18.56 8.62063 23.4084 3.45516 29.4927 3.061V2.25195H31V4.59612H30.2464C24.5539 4.59612 19.9266 9.37263 19.9266 15.2486C19.9266 15.4042 19.9316 15.5598 19.9367 15.7102L19.9718 16.5192H6.74807L5.08003 18.2826V18.2877Z" fill="url(#paint2_linear_2551_120)"/>
@@ -27,8 +27,8 @@
         </linearGradient>
         </defs>
       </svg>
-      <h3>IRON MAN</h3>
-      <svg width="32" height="19" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <h3>{{heroe.name}}</h3>
+      <svg width="40" height="35" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15.0007 17.5006H31.3477V18.012H14.4956L14.4854 16.7285H14.9956L15.0007 17.5006Z" fill="url(#paint0_linear_2551_124)"/>
           <path d="M0.817289 0.591797C8.33261 0.591797 14.4959 6.48763 14.9551 13.9022H14.4449C13.9857 6.76887 8.052 1.10314 0.817289 1.10314H0.000961304V0.591797H0.817289Z" fill="url(#paint1_linear_2551_124)"/>
           <path d="M26.2676 18.2877L28.3477 18.2307L25.2326 14.9634H12.9283C12.7876 8.62063 7.93926 3.45516 1.85492 3.061V2.25195H0.347656V4.59612H1.10129C6.79374 4.59612 11.421 9.37263 11.421 15.2486C11.421 15.4042 11.416 15.5598 11.411 15.7102L11.3758 16.5192H24.5996L26.2676 18.2826V18.2877Z" fill="url(#paint2_linear_2551_124)"/>
@@ -61,7 +61,7 @@
         <button class="hero-full-info" type="button" aria-label="See Character">
           <span>See More</span>
         </button>
-        <img ngSrc="https://i.pinimg.com/564x/44/65/4d/44654daaf592908a527fb42d28f39998.jpg" width="100" height="100" alt="Hero image">
+        <img ngSrc="{{heroe.thumbnail.path}}.jpg" width="100" height="100" alt="Hero image">
       </div>
 
       <svg class="hero-image-background" viewBox="0 0 248 201" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -90,8 +90,8 @@
 
     <div class="hero-comics-movies">
       <ul>
-        <li>Comics: <span>25</span> </li>
-        <li>Movies: <span>12</span> </li>
+        <li>Series: <span>{{heroe.series.returned}}</span> </li>
+        <li>Stories: <span>{{heroe.stories.returned}}</span> </li>
       </ul>
     </div>
 

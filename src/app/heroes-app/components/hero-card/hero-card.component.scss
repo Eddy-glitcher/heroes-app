@@ -19,9 +19,16 @@
   .hero-name{
     display: flex;
     gap: 20px;
-    font-size: $font-size-title-md;
+    width: 100%;
+    padding: 0px 10px;
+
+    @include displayElements(flex,space-between,flex-start);
 
     h3{
+      max-width: 110px;
+      place-self: center;
+      font-size: $font-size-title-md;
+      text-align: center;
       color: $primary-color-light;
     }
   }
