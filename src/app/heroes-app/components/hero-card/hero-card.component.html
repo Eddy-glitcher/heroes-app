@@ -61,7 +61,10 @@
         <button class="hero-full-info" type="button" aria-label="See Character">
           <span>See More</span>
         </button>
-        <img ngSrc="{{heroe.thumbnail.path}}.jpg" width="100" height="100" alt="Hero image">
+
+        <picture>
+          <img ngSrc="{{heroe.thumbnail.path + '.' + heroe.thumbnail.extension | heroImageNotFound}}" width="100" height="100" alt="Hero image">
+        </picture>
       </div>
 
       <svg class="hero-image-background" viewBox="0 0 248 201" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
