@@ -10,6 +10,7 @@ import { DebounceHeroListComponent } from './components/debounce-hero-list/debou
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { HeroImageNotFoundPipe } from './pipes/hero-image-not-found.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HeroImageNotFoundPipe } from './pipes/hero-image-not-found.pipe';
     HeroesAppRoutingModule,
     CarouselModule,
     NgOptimizedImage,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class HeroesAppModule { }
