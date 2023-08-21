@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MarvelHeroesService } from '../../services/marvel-heroes.service';
+import { PaginationInstance } from 'ngx-pagination';
 import { MarvelHeroe } from '../../interfaces/marvel-heroes';
 
 @Component({
@@ -12,6 +13,13 @@ export class CharactersPageComponent implements OnInit{
 
   heroeList : MarvelHeroe[] = [];
   isHttpRequestFails : boolean = false;
+
+  // Pagination Assets
+  paginationConfig: PaginationInstance = {
+    id: 'custom',
+    itemsPerPage: 4,
+    currentPage: 1
+  };
 
   constructor(private heroService : MarvelHeroesService){}
 

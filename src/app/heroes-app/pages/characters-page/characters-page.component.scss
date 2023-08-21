@@ -166,6 +166,44 @@
   }
 }
 
+.custom-pagination{
+  display: flex;
+  place-items: center;
+  place-content: center;
+  gap: 10px;
+
+  button{
+    display: flex;
+    font-size: $font-size-icon;
+    border-radius: 100%;
+    color: $primary-color-medium;
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  button:hover{
+    cursor: pointer;
+
+    i{
+      opacity: 0.9;
+    }
+  }
+
+  .pagination-pages{
+    width: 70px;
+    text-align: center;
+
+    span{
+      color: $primary-color-medium;
+    }
+  }
+}
+
+.paginator-button-disabled{
+  opacity: 0.7;
+  cursor: unset;
+  pointer-events: none;
+}
 
 @media (min-width: 840px) {
 

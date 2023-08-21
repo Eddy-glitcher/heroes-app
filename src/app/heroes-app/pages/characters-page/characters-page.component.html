@@ -65,12 +65,48 @@
 
             <div class="characters-cards-container">
               <app-hero-card
-              *ngFor="let heroe of heroeList"
+              *ngFor="let heroe of heroeList | paginate: paginationConfig"
               [heroe]="heroe"
               >
               </app-hero-card>
               <span *ngIf="isHttpRequestFails">Hay un error al cargar data</span>
             </div>
+
+            <pagination-template #paginationControls="paginationApi"
+              id="custom"
+              (pageChange)="paginationConfig.currentPage = $event">
+
+              <div class="custom-pagination">
+
+                <div class="pagination-previous">
+                  <button
+                    (click)="paginationControls.previous()"
+                    [disabled]="paginationControls.isFirstPage()"
+                    [ngClass]="paginationControls.isFirstPage() ? 'paginator-button-disabled' : ''"
+                  >
+                    <i class="fa-solid fa-circle-chevron-left"
+                    ></i>
+                  </button>
+                </div>
+
+                <div class="pagination-pages">
+                  <span>
+                    {{paginationControls.getCurrent()}} / {{heroeList.length / paginationConfig.itemsPerPage }}
+                  </span>
+                </div>
+
+                <div class="pagination-next">
+                  <button
+                    (click)="paginationControls.next()"
+                    [disabled]="paginationControls.isLastPage()"
+                    [ngClass]="paginationControls.isLastPage() ? 'paginator-button-disabled' : ''"
+                    >
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                  </button>
+                </div>
+                
+              </div>
+            </pagination-template>
           </section>
         </div>
       </div>
