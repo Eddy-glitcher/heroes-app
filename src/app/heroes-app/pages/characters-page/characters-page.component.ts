@@ -13,6 +13,7 @@ export class CharactersPageComponent implements OnInit{
 
   heroeList : MarvelHeroe[] = [];
   isHttpRequestFails : boolean = false;
+  isHeroListLoading : boolean = true;
 
   // Pagination Assets
   paginationConfig: PaginationInstance = {
@@ -21,12 +22,16 @@ export class CharactersPageComponent implements OnInit{
     currentPage: 1
   };
 
+  generateHeroCards(): number[] {
+    return Array.from({ length: this.paginationConfig.itemsPerPage }, (_, index) => index);
+  }
+
   constructor(private heroService : MarvelHeroesService){}
 
   ngOnInit(): void {
     this.heroService.getMarvelHeroes().subscribe({
-      next: (heroeArrList) => {this.heroeList = heroeArrList}, // Get the herolist if there are no errors.
-      error: (error : HttpErrorResponse) => { this.isHttpRequestFails = true;} // To show the error message.
+      next: (heroeArrList) => {this.heroeList = heroeArrList; this.isHeroListLoading = false;}, // Get the herolist if there are no errors.
+      error: (error : HttpErrorResponse) => { this.isHttpRequestFails = true; this.isHeroListLoading = false;} // To show the error message.
     });
   }
 }
