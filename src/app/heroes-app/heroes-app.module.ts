@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { HeroImageNotFoundPipe } from './pipes/hero-image-not-found.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CarouselModule,
     NgOptimizedImage,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSkeletonLoaderModule,
   ]
 })
 export class HeroesAppModule { }
