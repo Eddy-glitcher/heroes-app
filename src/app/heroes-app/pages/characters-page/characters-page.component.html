@@ -2,6 +2,8 @@
   <div class="characters-background-container">
     <section class="characters-stats-container">
       <div class="max-width-content">
+
+        <!------------- Produced Films Bar Start  ------------->
         <div class="characters-stats">
           <div class="characters-movie-bar characters-item-stat">
             <h2>{{ "Produced Film Progress" | uppercase }}</h2>
@@ -36,7 +38,9 @@
               </div>
             </div>
           </div>
+        <!------------- Produced Films Bar End  ------------->
 
+        <!------------- Heroes Poster Image Start  ------------->
           <div class="characters-movie-poster characters-item-stat">
             <picture>
               <img
@@ -47,6 +51,7 @@
               />
             </picture>
           </div>
+        <!------------- Heroes Poster Image End  ------------->
         </div>
       </div>
     </section>
@@ -54,71 +59,87 @@
     <section class="characters__container characters__cards-container">
       <div class="characters-cards-background">
         <div class="max-width-content">
+
+        <!------------- Hero Cards Start  ------------->
           <section class="characters-cards">
             <div class="character-searchbar-title">
               <h2>{{ "Search The Hero" | uppercase }}</h2>
             </div>
 
+          <!------------- Debouncetime Hero Start  ------------->
             <div class="hero-searchbar">
               <app-debounce-hero-list></app-debounce-hero-list>
             </div>
+          <!------------- Debouncetime Hero End  ------------->
 
             <div class="characters-cards-container">
 
-              <ng-container *ngIf="isHeroListLoading; else heroCards">
-                <app-hero-card
-                  *ngFor="let card of generateHeroCards()"
-                  [isHeroListLoading]="isHeroListLoading">
-                </app-hero-card>
-              </ng-container>
+              <!------------- Skeleton Hero Cards Start  ------------->
+              <!-- If the heroList is empty, these cards are loaded -->
+                <ng-container *ngIf="isHeroListLoading; else heroCards">
+                  <app-hero-card
+                    *ngFor="let card of generateHeroCards()"
+                    [isHeroListLoading]="isHeroListLoading">
+                  </app-hero-card>
+                </ng-container>
+              <!------------- Skeleton Hero Cards End  ------------->
 
-              <ng-template #heroCards>
-                <app-hero-card
-                *ngFor="let hero of heroList | paginate: paginationConfig"
-                [hero]="hero"
-                >
-                </app-hero-card>
-              </ng-template>
+              <!------------- Hero Cards Start  ------------->
+              <!-- If the heroList is full, this cards are loaded -->
+                <ng-template #heroCards>
+                  <app-hero-card
+                  *ngFor="let hero of heroList | paginate: paginationConfig"
+                  [hero]="hero"
+                  >
+                  </app-hero-card>
+                </ng-template>
+              <!------------- Hero Cards End  ------------->
 
-              <span *ngIf="isHttpRequestFails">Hay un error al cargar data</span>
+              <!------------- Error Message Start  ------------->
+              <!-- If ocurrs an error whit the hero list api response, this message will show  -->
+                <span *ngIf="isHttpRequestFails">Hay un error al cargar data</span>
+              <!------------- Error Message End  ------------->
             </div>
 
-            <pagination-template #paginationControls="paginationApi"
-              id="custom"
-              (pageChange)="paginationConfig.currentPage = $event">
+            <!------------- Paginator Start  ------------->
+              <pagination-template #paginationControls="paginationApi"
+                id="custom"
+                (pageChange)="paginationConfig.currentPage = $event">
 
-              <div class="custom-pagination">
+                <div class="custom-pagination">
 
-                <div class="pagination-previous">
-                  <button
-                    (click)="paginationControls.previous()"
-                    [disabled]="paginationControls.isFirstPage()"
-                    [ngClass]="paginationControls.isFirstPage() ? 'paginator-button-disabled' : ''"
-                  >
-                    <i class="fa-solid fa-circle-chevron-left"
-                    ></i>
-                  </button>
-                </div>
-
-                <div class="pagination-pages">
-                  <span>
-                    {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
-                  </span>
-                </div>
-
-                <div class="pagination-next">
-                  <button
-                    (click)="paginationControls.next()"
-                    [disabled]="paginationControls.isLastPage()"
-                    [ngClass]="paginationControls.isLastPage() ? 'paginator-button-disabled' : ''"
+                  <div class="pagination-previous">
+                    <button
+                      (click)="paginationControls.previous()"
+                      [disabled]="paginationControls.isFirstPage()"
+                      [ngClass]="paginationControls.isFirstPage() ? 'paginator-button-disabled' : ''"
                     >
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                  </button>
-                </div>
+                      <i class="fa-solid fa-circle-chevron-left"
+                      ></i>
+                    </button>
+                  </div>
 
-              </div>
-            </pagination-template>
+                  <div class="pagination-pages">
+                    <span>
+                      {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
+                    </span>
+                  </div>
+
+                  <div class="pagination-next">
+                    <button
+                      (click)="paginationControls.next()"
+                      [disabled]="paginationControls.isLastPage()"
+                      [ngClass]="paginationControls.isLastPage() ? 'paginator-button-disabled' : ''"
+                      >
+                      <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                  </div>
+
+                </div>
+              </pagination-template>
+            <!------------- Paginator End  ------------->
           </section>
+        <!------------- Hero Cards End  ------------->
         </div>
       </div>
     </section>
