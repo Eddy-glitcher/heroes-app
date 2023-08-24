@@ -26,12 +26,33 @@ export class CharactersPageComponent implements OnInit{
     return Array.from({ length: this.paginationConfig.itemsPerPage }, (_, index) => index);
   }
 
+  // Order the heroes by the larger description
+  orderHeroesByDescription(firstHero : MarvelHero, secondHero: MarvelHero) : number{
+    if(firstHero.description > secondHero.description){
+      return -1;
+    }
+    if(secondHero.description > firstHero.description){
+      return 1;
+    }
+    return 0;
+  }
+
   constructor(private heroService : MarvelHeroesService){}
 
   ngOnInit(): void {
     this.heroService.getMarvelHeroes().subscribe({
-      next: (heroList) => {this.heroList = heroList; this.isHeroListLoading = false;}, // Get the herolist if there are no errors.
-      error: (error : HttpErrorResponse) => { this.isHttpRequestFails = true; this.isHeroListLoading = false;} // To show the error message.
+      next: (heroList) => { // Get the herolist if there are no errors.
+
+        heroList.sort((a : MarvelHero, b: MarvelHero): number =>{ // To order the heroes by the larger description
+          return this.orderHeroesByDescription(a,b);
+        });
+        this.heroList = heroList;
+        this.isHeroListLoading = false;
+      },
+      error: (error : HttpErrorResponse) => {
+        this.isHttpRequestFails = true;
+        this.isHeroListLoading = false;
+      }
     });
   }
 }
