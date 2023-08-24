@@ -13,8 +13,19 @@
   width: 248px;
   height: 448px;
   padding: 25px 0px;
+  opacity: 0;
   background: url('https://i.postimg.cc/kXvJ6Vx0/hero-card-background.png') center no-repeat;
   background-size: cover;
+  animation: showHeroCard 1000ms ease-in-out forwards;
+
+  @keyframes showHeroCard{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 
   .hero-name{
     display: flex;
