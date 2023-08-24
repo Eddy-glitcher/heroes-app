@@ -1,12 +1,12 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MarvelHeroe } from '../../interfaces/marvel-heroes';
+import { MarvelHero } from '../../interfaces/marvel-heroes';
 @Component({
   selector: 'app-hero-card',
   templateUrl: './hero-card.component.html',
   styleUrls: ['./hero-card.component.scss']
 })
 export class HeroCardComponent implements OnInit, OnDestroy{
-  @Input() heroe!: MarvelHeroe;
+  @Input() heroe!: MarvelHero;
   @Input() isHeroListLoading?: boolean;
 
   animation : string = 'pulse';

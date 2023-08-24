@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MarvelHeroesService } from '../../services/marvel-heroes.service';
 import { PaginationInstance } from 'ngx-pagination';
-import { MarvelHeroe } from '../../interfaces/marvel-heroes';
+import { MarvelHero } from '../../interfaces/marvel-heroes';
 
 @Component({
   selector: 'app-characters-page',
@@ -11,7 +11,7 @@ import { MarvelHeroe } from '../../interfaces/marvel-heroes';
 })
 export class CharactersPageComponent implements OnInit{
 
-  heroeList : MarvelHeroe[] = [];
+  heroeList : MarvelHero[] = [];
   isHttpRequestFails : boolean = false;
   isHeroListLoading : boolean = true;
 
