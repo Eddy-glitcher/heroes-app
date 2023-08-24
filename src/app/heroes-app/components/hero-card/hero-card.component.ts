@@ -6,7 +6,7 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
   styleUrls: ['./hero-card.component.scss']
 })
 export class HeroCardComponent implements OnInit, OnDestroy{
-  @Input() heroe!: MarvelHero;
+  @Input() hero!: MarvelHero;
   @Input() isHeroListLoading?: boolean;
 
   animation : string = 'pulse';

@@ -81,7 +81,7 @@
           </linearGradient>
           </defs>
         </svg>
-        <h3 class="hero-name-text">{{heroe.name}}</h3>
+        <h3 class="hero-name-text">{{hero.name}}</h3>
         <svg width="40" height="35" viewBox="0 0 32 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.0007 17.5006H31.3477V18.012H14.4956L14.4854 16.7285H14.9956L15.0007 17.5006Z" fill="url(#paint0_linear_2551_124)"/>
             <path d="M0.817289 0.591797C8.33261 0.591797 14.4959 6.48763 14.9551 13.9022H14.4449C13.9857 6.76887 8.052 1.10314 0.817289 1.10314H0.000961304V0.591797H0.817289Z" fill="url(#paint1_linear_2551_124)"/>
@@ -117,7 +117,7 @@
           </button>
 
           <picture>
-            <img ngSrc="{{heroe.thumbnail.path + '.' + heroe.thumbnail.extension | heroImageNotFound}}" width="100" height="100" alt="Hero image">
+            <img ngSrc="{{hero.thumbnail.path + '.' + hero.thumbnail.extension | heroImageNotFound}}" width="100" height="100" alt="Hero image">
           </picture>
         </div>
 
@@ -147,8 +147,8 @@
 
       <div class="hero-comics-movies">
         <ul>
-          <li class="hero-comics-movies-item">Series: <span>{{heroe.series.returned}}</span> </li>
-          <li class="hero-comics-movies-item">Stories: <span>{{heroe.stories.returned}}</span> </li>
+          <li class="hero-comics-movies-item">Series: <span>{{hero.series.returned}}</span> </li>
+          <li class="hero-comics-movies-item">Stories: <span>{{hero.stories.returned}}</span> </li>
         </ul>
       </div>
 
