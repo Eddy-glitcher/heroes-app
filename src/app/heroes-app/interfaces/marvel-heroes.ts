@@ -13,10 +13,10 @@ export interface MarvelData {
   limit:   number;
   total:   number;
   count:   number;
-  results: MarvelHeroe[];
+  results: MarvelHero[];
 }
 
-export interface MarvelHeroe {
+export interface MarvelHero {
   id:          number;
   name:        string;
   description: string;
