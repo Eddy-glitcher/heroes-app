@@ -74,8 +74,8 @@
 
               <ng-template #heroCards>
                 <app-hero-card
-                *ngFor="let heroe of heroeList | paginate: paginationConfig"
-                [heroe]="heroe"
+                *ngFor="let hero of heroList | paginate: paginationConfig"
+                [hero]="hero"
                 >
                 </app-hero-card>
               </ng-template>
@@ -102,7 +102,7 @@
 
                 <div class="pagination-pages">
                   <span>
-                    {{paginationControls.getCurrent()}} / {{heroeList.length / paginationConfig.itemsPerPage }}
+                    {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
                   </span>
                 </div>
 

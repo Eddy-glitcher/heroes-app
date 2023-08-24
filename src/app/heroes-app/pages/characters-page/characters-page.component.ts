@@ -11,7 +11,7 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
 })
 export class CharactersPageComponent implements OnInit{
 
-  heroeList : MarvelHero[] = [];
+  heroList : MarvelHero[] = [];
   isHttpRequestFails : boolean = false;
   isHeroListLoading : boolean = true;
 
@@ -30,7 +30,7 @@ export class CharactersPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.heroService.getMarvelHeroes().subscribe({
-      next: (heroeArrList) => {this.heroeList = heroeArrList; this.isHeroListLoading = false;}, // Get the herolist if there are no errors.
+      next: (heroList) => {this.heroList = heroList; this.isHeroListLoading = false;}, // Get the herolist if there are no errors.
       error: (error : HttpErrorResponse) => { this.isHttpRequestFails = true; this.isHeroListLoading = false;} // To show the error message.
     });
   }
