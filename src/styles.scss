@@ -1,25 +1,30 @@
 @import './assets/styles/general-styles.scss';
 
+// Reset the naveagtor font-size styles by default.
 html{
   font-size: 62.5%;
   font-family: $font-family-base;
 }
 
+// General body styles
 body{
   color: #fff;
   font-size: 1.6rem;
-  background-color: rgba($color: #090909, $alpha: 1);
+  background-color: rgba($color: $secondary-background , $alpha: 1);
 }
 
+// List styles resets
 ul{
   list-style: none;
 }
 
+// Images Size Styles
 img{
   width: 100%;
   height: 100%;
 }
 
+// Max content Styles
 .max-width-content{
   width: 95%;
   max-width: 1250px;
@@ -27,6 +32,7 @@ img{
   padding: 30px 10px;
 }
 
+// Carousel control styles
 .owl-carousel .owl-nav{
   display: flex;
   justify-content: space-between;
@@ -47,10 +53,12 @@ img{
   }
 }
 
+// Carousel control styles
 .owl-theme .owl-dots .owl-dot span {
   background: $primary-color-medium;
 }
 
+// Carousel control styles
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: $primary-color-light;
 }
