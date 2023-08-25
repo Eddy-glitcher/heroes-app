@@ -9,6 +9,7 @@ import { MarvelHero, MarvelHeroes } from '../interfaces/marvel-heroes';
 })
 export class MarvelHeroesService {
 
+  // Marvel Api assets to make the http request
   apiBaseUrl : string = environment.apiBaseUrl;
   apiKey     : string = environment.apiKey;
   apiHash    : string = environment.apiHash;
