@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { HeroeImages } from '../../interfaces/heroe-images';
 
 @Component({
   selector: 'app-hero-slider',
@@ -9,7 +10,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class HeroSliderComponent {
 
   // List of Hero images that are received from the parent component
-  @Input() heroImageList: any = [];
+  @Input() heroImageList: HeroeImages[] = [];
 
   // Slider assets
   heroSliderOPtions: OwlOptions = {
