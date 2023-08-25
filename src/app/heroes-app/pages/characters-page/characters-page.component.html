@@ -77,21 +77,62 @@
               <!------------- Skeleton Hero Cards Start  ------------->
               <!-- If the heroList is empty, these cards are loaded -->
                 <ng-container *ngIf="isHeroListLoading; else heroCards">
-                  <app-hero-card
-                    *ngFor="let card of generateHeroCards()"
-                    [isHeroListLoading]="isHeroListLoading">
-                  </app-hero-card>
+                  <div class="hero-cards-pagination-container">
+                    <app-hero-card
+                      *ngFor="let card of generateHeroCards()"
+                      [isHeroListLoading]="isHeroListLoading">
+                    </app-hero-card>
+                  </div>
                 </ng-container>
               <!------------- Skeleton Hero Cards End  ------------->
 
               <!------------- Hero Cards Start  ------------->
               <!-- If the heroList is full, this cards are loaded -->
                 <ng-template #heroCards>
-                  <app-hero-card
-                  *ngFor="let hero of heroList | paginate: paginationConfig"
-                  [hero]="hero"
-                  >
-                  </app-hero-card>
+                  <div class="hero-cards-pagination-container">
+                    <app-hero-card
+                      *ngFor="let hero of heroList | paginate: paginationConfig"
+                      [hero]="hero"
+                      >
+                    </app-hero-card>
+                    <!------------- Paginator Start  ------------->
+                    <pagination-template #paginationControls="paginationApi"
+                        id="custom"
+                        class="hero-cards-paginator"
+                        (pageChange)="paginationConfig.currentPage = $event">
+                        <div class="custom-pagination">
+
+                          <div class="pagination-previous">
+                            <button
+                              (click)="paginationControls.previous()"
+                              [disabled]="paginationControls.isFirstPage()"
+                              [ngClass]="paginationControls.isFirstPage() ? 'paginator-button-disabled' : ''"
+                            >
+                              <i class="fa-solid fa-circle-chevron-left"
+                              ></i>
+                            </button>
+                          </div>
+
+                          <div class="pagination-pages">
+                            <span>
+                              {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
+                            </span>
+                          </div>
+
+                          <div class="pagination-next">
+                            <button
+                              (click)="paginationControls.next()"
+                              [disabled]="paginationControls.isLastPage()"
+                              [ngClass]="paginationControls.isLastPage() ? 'paginator-button-disabled' : ''"
+                              >
+                              <i class="fa-solid fa-circle-chevron-right"></i>
+                            </button>
+                          </div>
+
+                        </div>
+                    </pagination-template>
+                    <!------------- Paginator End  ------------->
+                  </div>
                 </ng-template>
               <!------------- Hero Cards End  ------------->
 
@@ -100,44 +141,6 @@
                 <span *ngIf="isHttpRequestFails">Hay un error al cargar data</span>
               <!------------- Error Message End  ------------->
             </div>
-
-            <!------------- Paginator Start  ------------->
-              <pagination-template #paginationControls="paginationApi"
-                id="custom"
-                (pageChange)="paginationConfig.currentPage = $event">
-
-                <div class="custom-pagination">
-
-                  <div class="pagination-previous">
-                    <button
-                      (click)="paginationControls.previous()"
-                      [disabled]="paginationControls.isFirstPage()"
-                      [ngClass]="paginationControls.isFirstPage() ? 'paginator-button-disabled' : ''"
-                    >
-                      <i class="fa-solid fa-circle-chevron-left"
-                      ></i>
-                    </button>
-                  </div>
-
-                  <div class="pagination-pages">
-                    <span>
-                      {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
-                    </span>
-                  </div>
-
-                  <div class="pagination-next">
-                    <button
-                      (click)="paginationControls.next()"
-                      [disabled]="paginationControls.isLastPage()"
-                      [ngClass]="paginationControls.isLastPage() ? 'paginator-button-disabled' : ''"
-                      >
-                      <i class="fa-solid fa-circle-chevron-right"></i>
-                    </button>
-                  </div>
-
-                </div>
-              </pagination-template>
-            <!------------- Paginator End  ------------->
           </section>
         <!------------- Hero Cards End  ------------->
         </div>
