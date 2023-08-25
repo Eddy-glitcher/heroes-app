@@ -8,8 +8,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HeroSliderComponent {
 
+  // List of Hero images that are received from the parent component
   @Input() heroImageList: any = [];
 
+  // Slider assets
   heroSliderOPtions: OwlOptions = {
     loop: false,
     mouseDrag: false,
