@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'heroesApp';
+
+  // To decrease or increment the main opacity
+  isMenuBarOpen : boolean = false;
+
+  // Receive the event emitter and execute it
+  menuBarState(isMenuBarOpen  : boolean): boolean{
+    this.isMenuBarOpen = isMenuBarOpen;
+    return isMenuBarOpen;
+  }
 }

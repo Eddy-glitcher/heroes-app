@@ -1,8 +1,8 @@
 <header>
-  <app-header></app-header>
+  <app-header (menuBarState)="menuBarState($event)"></app-header>
 </header>
 
-<main>
+<main [ngClass]="isMenuBarOpen ? 'menu-bar-open' : ''">
   <section>
     <router-outlet></router-outlet>
   </section>
