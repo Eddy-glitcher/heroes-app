@@ -6,14 +6,19 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
   styleUrls: ['./hero-card.component.scss']
 })
 export class HeroCardComponent implements OnInit, OnDestroy{
+  // This is the hero data that will be load on cards
   @Input() hero!: MarvelHero;
+
+  // This boolean will be load the skeleton cards or the hero cards
   @Input() isHeroListLoading?: boolean;
 
+  // Skeleton cards animation Assets
   animation : string = 'pulse';
   count: number = 1;
   widthHeightSizeInPixels: number = 50;
   intervalId: number | null = null;
 
+  // Skeleton cards animation Styles
   skeletonItemsLoadingStyles = {
     width: '100%',
     height: '100%',
@@ -22,6 +27,7 @@ export class HeroCardComponent implements OnInit, OnDestroy{
     'animation-duration': '2s'
   }
 
+  // Animation Assets that will be switch the animation styles
   ngOnInit(): void {
     this.intervalId = window.setInterval(() => {
       this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
@@ -31,6 +37,7 @@ export class HeroCardComponent implements OnInit, OnDestroy{
     }, 5000);
   }
 
+  // Clear the Interval Fucntion to prevent the memory leak before the component is destroyed
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
