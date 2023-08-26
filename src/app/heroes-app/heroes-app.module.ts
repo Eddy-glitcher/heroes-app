@@ -9,6 +9,9 @@ import { NgOptimizedImage } from '@angular/common';
 import { DebounceHeroListComponent } from './components/debounce-hero-list/debounce-hero-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { HeroImageNotFoundPipe } from './pipes/hero-image-not-found.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     HeroSliderComponent,
     DebounceHeroListComponent,
     HeroCardComponent,
+    HeroImageNotFoundPipe,
   ],
   imports: [
     CommonModule,
     HeroesAppRoutingModule,
     CarouselModule,
     NgOptimizedImage,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    NgxSkeletonLoaderModule,
   ]
 })
 export class HeroesAppModule { }

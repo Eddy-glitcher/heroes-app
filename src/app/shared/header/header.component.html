@@ -13,7 +13,7 @@
       <button aria-label="Show/Hide Menu">
         <i
           class="fa-solid"
-          (click)="isMenuBarOpen = !isMenuBarOpen"
+          (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(isMenuBarOpen);"
           [ngClass]="isMenuBarOpen ? 'fa-xmark' : 'fa-bars'"
         ></i>
       </button>

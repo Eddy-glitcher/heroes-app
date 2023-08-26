@@ -87,10 +87,10 @@
     }
 
     .movie-progressbar-stat {
-      width: 70%;
       height: 15px;
       text-align: right;
       background: $primary-linear-gradient;
+      animation: progressbar-animated 600ms linear forwards;
 
       .movie-progressbar-elements {
         position: relative;
@@ -106,6 +106,16 @@
         }
       }
     }
+
+    @keyframes progressbar-animated {
+      from{
+        width: 0%;
+      }
+      to{
+        width: 70%;
+      }
+    }
+
   }
 }
 
@@ -147,15 +157,55 @@
     }
 
     .characters-cards-container {
-      margin-top: 20px;
-      display: grid;
-      grid-template-rows: repeat(4, auto);
-      place-content: center;
-      gap: 20px;
+      .hero-cards-pagination-container{
+        margin-top: 20px;
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        place-content: center;
+        gap: 20px;
+      }
     }
   }
 }
 
+.custom-pagination{
+  display: flex;
+  place-items: center;
+  place-content: center;
+  gap: 10px;
+
+  button{
+    display: flex;
+    font-size: $font-size-icon;
+    border-radius: 100%;
+    color: $primary-color-medium;
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  button:hover{
+    cursor: pointer;
+
+    i{
+      opacity: 0.9;
+    }
+  }
+
+  .pagination-pages{
+    width: 70px;
+    text-align: center;
+
+    span{
+      color: $primary-color-medium;
+    }
+  }
+}
+
+.paginator-button-disabled{
+  opacity: 0.7;
+  cursor: unset;
+  pointer-events: none;
+}
 
 @media (min-width: 840px) {
 
@@ -197,8 +247,15 @@
     }
 
     .characters-cards-container {
-      grid-template-columns: repeat(2, auto);
-      grid-template-rows: repeat(2, auto);
+      .hero-cards-pagination-container{
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto);
+
+        .hero-cards-paginator{
+          grid-area: 3 / 1 / 4 / 3;
+        }
+
+      }
     }
   }
 }
@@ -222,8 +279,15 @@
 
   .characters-cards {
     .characters-cards-container {
-      grid-template-columns: repeat(4, auto);
-      grid-template-rows: repeat(1, auto);
+      .hero-cards-pagination-container{
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(2, auto);
+
+        .hero-cards-paginator{
+          grid-area: 2 / 1 / 5 / 5;
+        }
+
+      }
     }
   }
 

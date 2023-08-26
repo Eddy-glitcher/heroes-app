@@ -1,4 +1,4 @@
-export interface HeroImages {
+export interface HeroeImages {
   id       : string;
   name     : string;
   alt      : string;
