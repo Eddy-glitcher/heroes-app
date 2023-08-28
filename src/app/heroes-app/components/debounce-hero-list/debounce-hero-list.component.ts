@@ -24,7 +24,7 @@ export class DebounceHeroListComponent {
     name : ['']
   });
 
-  validateEmptyFormField(heroName: string): void{
+  searchHeroByName(heroName: string): void{
     this.heroForm.controls[heroName].valueChanges.pipe(
       tap(()=>{
 
@@ -56,18 +56,18 @@ export class DebounceHeroListComponent {
       });
   }
 
-  selectHero(hero : string, formEntrie : string): void{
-    this.heroForm.controls[formEntrie].setValue(hero);
+  selectHero(hero : string, heroFormEntrie : string): void{
+    this.heroForm.controls[heroFormEntrie].setValue(hero);
     this.showHeroListOptions = false;
   }
 
 
-  cleanFormField(campo: string): void{
+  cleanHeroFormEntrie(heroFormEntrie: string): void{
     this.isTextBoxEmpty      = false;
     this.isHeroSearchActive  = false;
     this.isHeroSearchedExist = false;
     this.debounceHeroList    = [];
-    this.heroForm.controls[campo].reset();
+    this.heroForm.controls[heroFormEntrie].reset();
   }
 
     // To manipulate de html click event

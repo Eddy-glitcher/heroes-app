@@ -15,14 +15,14 @@
         type="text"
         id="search-hero"
         placeholder="Search Hero"
-        (input)="validateEmptyFormField('name')"
+        (input)="searchHeroByName('name')"
         (focus)="showHeroListOptions = true; isTextBoxFocused = true"
         (blur)="isTextBoxFocused = false"
       />
 
       <button aria-label="Clean Searchbox" class="searchbar-hero-clean" type="button"
         [ngClass]="isTextBoxEmpty ? 'show-clean-icon' : 'hide-clean-icon'"
-        (click)="cleanFormField('name')">
+        (click)="cleanHeroFormEntrie('name')">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
     </label>
