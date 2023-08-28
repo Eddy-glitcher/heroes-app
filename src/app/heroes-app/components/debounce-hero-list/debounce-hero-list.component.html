@@ -1,4 +1,5 @@
 <div class="hero-searchbar" #divElement>
+  <!------------- Search Box Start  ------------->
   <form action="" autocomplete="off" [formGroup]="heroForm">
     <label for="search-hero" [ngClass]="isTextBoxFocused ? 'focused-border' : ''">
       <button aria-label="Search Hero" class="search-hero-button" type="button"
@@ -27,10 +28,12 @@
       </button>
     </label>
   </form>
+  <!------------- Search Box End  ------------->
 
+  <!------------- Heroes List Options Start  ------------->
   <div class="hero-searchbar-options" *ngIf="showHeroListOptions">
     <ul>
-
+      <!-- This ng-container will show only when the debounceHeroList has heroes in it-->
       <ng-container *ngIf="debounceHeroList.length > 0; else searchingHero">
         <li
         *ngFor="let hero of debounceHeroList.slice(0,5)"
@@ -39,6 +42,8 @@
       </ng-container>
 
       <ng-template #searchingHero>
+
+        <!-- This search message will show only when the isHeroSearchActive is true -->
         <li class="hero-search-state-icon hero-searchbar-loader"
           *ngIf="isHeroSearchActive"
         >
@@ -61,6 +66,7 @@
           Searching...
         </li>
 
+        <!-- This not found message will show only when the isHeroSearchedExist is true -->
         <li class="hero-search-state-icon hero-searchbar-not-found-message"
           *ngIf="isHeroSearchedExist"
         >
@@ -70,7 +76,7 @@
           ¡ This character doesn't exist !
         </li>
       </ng-template>
-
     </ul>
   </div>
+  <!------------- Heroes List Options End  ------------->
 </div>
