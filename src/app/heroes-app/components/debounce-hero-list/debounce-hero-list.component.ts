@@ -24,15 +24,15 @@ export class DebounceHeroListComponent {
     name : ['']
   });
 
-  validateEmptyFormField(campo: string): void{
-    this.heroForm.controls[campo].valueChanges.pipe(
+  validateEmptyFormField(heroName: string): void{
+    this.heroForm.controls[heroName].valueChanges.pipe(
       tap(()=>{
 
-      (this.heroForm.controls[campo].value.length !== 0) ?
+      (this.heroForm.controls[heroName].value.length !== 0) ?
                             this.isTextBoxEmpty = true :
                             this.isTextBoxEmpty = false;
 
-      (this.heroForm.controls[campo].value.length >= 0 && this.debounceHeroList.length == 0 &&
+      (this.heroForm.controls[heroName].value.length >= 0 && this.debounceHeroList.length == 0 &&
       !this.isHeroSearchedExist)     ?
       this.isHeroSearchActive = true :
       this.isHeroSearchActive = false;
@@ -40,13 +40,13 @@ export class DebounceHeroListComponent {
       }),
       debounceTime(300),
       ).subscribe( (value: string) =>{
-        this.debounceHeroList =  this.heroList.filter((hero): any =>{
+        this.debounceHeroList =  this.heroList.filter((hero): boolean | void =>{
           if(value){
             return hero.name.toLowerCase().includes(value.toLowerCase());
           }
         });
 
-        if(this.heroForm.controls[campo].value.length !== 0 && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
+        if(this.heroForm.controls[heroName].value.length !== 0 && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
           this.isHeroSearchedExist = true;
           this.isHeroSearchActive  = false;
         }else{
@@ -56,8 +56,8 @@ export class DebounceHeroListComponent {
       });
   }
 
-  selectHero(hero : string){
-    this.heroForm.controls['name'].setValue(hero);
+  selectHero(hero : string, formEntrie : string): void{
+    this.heroForm.controls[formEntrie].setValue(hero);
     this.showHeroListOptions = false;
   }
 
