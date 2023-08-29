@@ -68,7 +68,7 @@
 
           <!------------- Debouncetime Hero Start  ------------->
             <div class="hero-searchbar">
-              <app-debounce-hero-list></app-debounce-hero-list>
+              <app-debounce-hero-list [heroList]="heroListCopy" (onSearchSelectedHero)="seachSelectedHero($event)" (onResetHeroList)="resetHeroList()"></app-debounce-hero-list>
             </div>
           <!------------- Debouncetime Hero End  ------------->
 
@@ -115,7 +115,7 @@
 
                           <div class="pagination-pages">
                             <span>
-                              {{paginationControls.getCurrent()}} / {{heroList.length / paginationConfig.itemsPerPage }}
+                              {{ getTotalPaginatorPages(paginationControls) }}
                             </span>
                           </div>
 

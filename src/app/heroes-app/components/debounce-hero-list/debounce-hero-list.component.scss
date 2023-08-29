@@ -116,21 +116,22 @@
       background-color: $color-blue-md;
     }
 
-    .hero-searchbar-loader{
+    .hero-search-state-icon{
       display: flex;
       align-items: center;
       gap: 5px;
 
-      // svg{
-      //   // animation: rotating-animation 1s infinite linear;
-      // }
+      .hero-searchbar-icon-loader{
+        animation: rotating-animation 1s infinite linear;
+        transform-origin: center;
+      }
 
       @keyframes rotating-animation {
         from{
-          transform: rotate(0deg);
+          transform: rotateZ(0deg);
         }
         to{
-          transform: rotate(360deg);
+          transform: rotateZ(360deg);
         }
       }
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MarvelHeroesService } from '../../services/marvel-heroes.service';
-import { PaginationInstance } from 'ngx-pagination';
+import { PaginationControlsDirective, PaginationInstance } from 'ngx-pagination';
 import { MarvelHero } from '../../interfaces/marvel-heroes';
 
 @Component({
@@ -12,6 +12,7 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
 export class CharactersPageComponent implements OnInit{
 
   heroList : MarvelHero[] = [];
+  heroListCopy : MarvelHero[] = [];
   isHttpRequestFails : boolean = false;
   isHeroListLoading : boolean = true;
 
@@ -21,6 +22,11 @@ export class CharactersPageComponent implements OnInit{
     itemsPerPage: 4,
     currentPage: 1
   };
+
+  // To get the rounded number of total paginator pages
+  getTotalPaginatorPages(paginationControls: PaginationControlsDirective){
+    return `${paginationControls.getCurrent()} / ${Math.ceil(this.heroList.length / this.paginationConfig.itemsPerPage)}`
+  }
 
   generateHeroCards(): number[] {
     return Array.from({ length: this.paginationConfig.itemsPerPage }, (_, index) => index);
@@ -37,6 +43,32 @@ export class CharactersPageComponent implements OnInit{
     return 0;
   }
 
+  // To filter the heroList and search the receives hero from the child component
+  seachSelectedHero(heroName : string): void{
+
+    this.resetHeroList();
+
+    if(heroName == ''){
+      this.resetHeroList();
+      return;
+    }
+
+    this.isHeroListLoading = true;
+    this.heroList = this.heroList.filter((hero)=>{
+      return hero.name.toLowerCase().includes(heroName.toLowerCase());
+    });
+    this.isHeroListLoading = false;
+  }
+
+  // To restart the heroes List
+  resetHeroList(){
+    if (this.heroList == this.heroListCopy) {
+      return;
+    }else{
+      this.heroList = this.heroListCopy;
+    }
+  }
+
   constructor(private heroService : MarvelHeroesService){}
 
   ngOnInit(): void {
@@ -47,6 +79,7 @@ export class CharactersPageComponent implements OnInit{
           return this.orderHeroesByDescription(a,b);
         });
         this.heroList = heroList;
+        this.heroListCopy = heroList;
         this.isHeroListLoading = false;
       },
       error: (error : HttpErrorResponse) => {

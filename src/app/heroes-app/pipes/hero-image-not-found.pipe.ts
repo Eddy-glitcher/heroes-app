@@ -11,7 +11,7 @@ export class HeroImageNotFoundPipe implements PipeTransform {
       return 'https://i.postimg.cc/R0WYKH6t/marvel-image-not-found.png';
     }
     // If the image doesn´t match whit any path the initial image will be returned
-    return image;
+    return image.replaceAll('http', 'https'); // Fix the http insecure request image
   }
 
 }
