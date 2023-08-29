@@ -1,8 +1,8 @@
 <div class="hero-searchbar" #divElement>
   <!------------- Search Box Start  ------------->
-  <form action="" autocomplete="off" [formGroup]="heroForm">
+  <form action="" autocomplete="off" [formGroup]="heroForm" (ngSubmit)="searchHeroesByKeyWord()">
     <label for="search-hero" [ngClass]="isTextBoxFocused ? 'focused-border' : ''">
-      <button aria-label="Search Hero" class="search-hero-button" type="button"
+      <button aria-label="Search Hero" class="search-hero-button" type="submit"
       >
         <i
         class="fa-solid fa-magnifying-glass"
@@ -37,7 +37,7 @@
       <ng-container *ngIf="debounceHeroList.length > 0; else searchingHero">
         <li
         *ngFor="let hero of debounceHeroList.slice(0,5)"
-        (click)="selectHero(hero.name, 'name')"
+        (click)="searchSelectedHero(hero.name, 'name')"
         >{{hero.name}}</li>
       </ng-container>
 

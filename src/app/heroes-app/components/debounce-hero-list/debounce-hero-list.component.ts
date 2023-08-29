@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
 import { MarvelHero } from '../../interfaces/marvel-heroes';
@@ -25,18 +25,24 @@ export class DebounceHeroListComponent {
     name : ['']
   });
 
+  // This even emitter will be execute the search for selected hero
+  @Output() onSearchSelectedHero: EventEmitter<string> = new EventEmitter();
+
+  // This even emmiter will be restart the heroes list of the parent component
+  @Output() onResetHeroList: EventEmitter<void> = new EventEmitter();
+
   // To search the hero in the list of heroes
   searchHeroByName(heroName: string): void{
     this.heroForm.controls[heroName].valueChanges.pipe(
       tap(()=>{
 
       // To show o hide the searchbar cleaner icon
-      (this.heroForm.controls[heroName].value.length !== 0) ?
+      (this.heroForm.controls[heroName].value !== '') ?
                             this.isTextBoxEmpty = true :
                             this.isTextBoxEmpty = false;
 
       // To show or hide the search message when the user types it in the search box
-      (this.heroForm.controls[heroName].value.length >= 0 && this.debounceHeroList.length == 0 &&
+      (this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 &&
       !this.isHeroSearchedExist)     ?
       this.isHeroSearchActive = true :
       this.isHeroSearchActive = false;
@@ -53,7 +59,7 @@ export class DebounceHeroListComponent {
         });
 
         // To show or hide the search message and not found error message
-        if(this.heroForm.controls[heroName].value.length !== 0 && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
+        if(this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
           this.isHeroSearchedExist = true;
           this.isHeroSearchActive  = false;
         }else{
@@ -63,10 +69,22 @@ export class DebounceHeroListComponent {
       });
   }
 
-  // To select the hero and execute the search event emmiter to find the hero
-  selectHero(hero : string, heroFormEntrie : string): void{
+  // To select the hero and execute the search event emmiter to find the selected hero
+  searchSelectedHero(hero : string, heroFormEntrie : string): void{
     this.heroForm.controls[heroFormEntrie].setValue(hero);
     this.showHeroListOptions = false;
+
+    if (this.isHeroSearchActive == false && this.isHeroSearchedExist == false) {
+      this.onSearchSelectedHero.emit(hero);
+    }
+  }
+
+  // This method will be search the heroes that includes the search box entries
+  searchHeroesByKeyWord(): void{
+    if(!this.isHeroSearchActive && !this.isHeroSearchedExist){
+      let heroKeyWord = this.heroForm.controls['name'].value;
+      this.onSearchSelectedHero.emit(heroKeyWord);
+    }
   }
 
   // To clean the search box and restart the heroes List
@@ -75,7 +93,10 @@ export class DebounceHeroListComponent {
     this.isHeroSearchActive  = false;
     this.isHeroSearchedExist = false;
     this.debounceHeroList    = [];
-    this.heroForm.controls[heroFormEntrie].reset();
+    this.heroForm.controls[heroFormEntrie].setValue('');
+
+    // Execute the even emitter that will be restart the heroes list of parent component
+    this.onResetHeroList.emit();
   }
 
     // To manipulate de html click event
