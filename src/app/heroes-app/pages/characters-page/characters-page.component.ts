@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MarvelHeroesService } from '../../services/marvel-heroes.service';
-import { PaginationInstance } from 'ngx-pagination';
+import { PaginationControlsDirective, PaginationInstance } from 'ngx-pagination';
 import { MarvelHero } from '../../interfaces/marvel-heroes';
 
 @Component({
@@ -22,6 +22,11 @@ export class CharactersPageComponent implements OnInit{
     itemsPerPage: 4,
     currentPage: 1
   };
+
+  // To get the rounded number of total paginator pages
+  getTotalPaginatorPages(paginationControls: PaginationControlsDirective){
+    return `${paginationControls.getCurrent()} / ${Math.ceil(this.heroList.length / this.paginationConfig.itemsPerPage)}`
+  }
 
   generateHeroCards(): number[] {
     return Array.from({ length: this.paginationConfig.itemsPerPage }, (_, index) => index);
