@@ -70,10 +70,10 @@ export class CharactersPageComponent implements OnInit{
     }
   }
 
-  constructor(private heroService : MarvelHeroesService){}
-
   // To get the heroes list from Marvel Api
-  ngOnInit(): void {
+  getHeroesData(){
+    this.isHeroListLoading = true;
+    this.isHttpRequestFails = false;
     this.heroService.getMarvelHeroes().subscribe({
       next: (heroList) => { // Get the herolist if there are no errors.
 
@@ -90,5 +90,11 @@ export class CharactersPageComponent implements OnInit{
         this.isHeroListLoading = false;
       }
     });
+  }
+
+  constructor(private heroService : MarvelHeroesService){}
+
+  ngOnInit(): void {
+    this.getHeroesData();
   }
 }

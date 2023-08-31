@@ -68,7 +68,13 @@
 
           <!------------- Debouncetime Hero Start  ------------->
             <div class="hero-searchbar">
-              <app-debounce-hero-list [heroList]="heroListCopy" (onSearchSelectedHero)="seachSelectedHero($event)" (onResetHeroList)="resetHeroList()"></app-debounce-hero-list>
+              <app-debounce-hero-list
+                *ngIf="!isHttpRequestFails"
+                [heroList]="heroListCopy"
+                (onSearchSelectedHero)="seachSelectedHero($event)"
+                (onResetHeroList)="resetHeroList()"
+                >
+              </app-debounce-hero-list>
             </div>
           <!------------- Debouncetime Hero End  ------------->
 
@@ -94,7 +100,7 @@
               <!------------- Hero Cards Start  ------------->
               <!-- If the heroList is full, this cards are loaded -->
                 <ng-template #heroCards>
-                  <section class="hero-cards-paginator-container">
+                  <section class="hero-cards-paginator-container" *ngIf="!isHttpRequestFails">
                     <div
                     [ngClass]="heroList.length == 1 ? 'hero-cards-centered-element' : 'hero-cards-pagination-container'"
                     >
@@ -142,13 +148,21 @@
                     </pagination-template>
                     <!----------- Paginator End  ------------->
                   </section>
+
+                  <section class="hero-cards-loading-error"
+                    *ngIf="isHttpRequestFails">
+                    <!------------- Error Message Start  ------------->
+                    <!-- If ocurrs an error whit the hero list api response, this message will show  -->
+                    <app-cards-loading-error
+                      class="cards-loading-error"
+                      (onGetHeroesData)="getHeroesData()"
+                      >
+                    </app-cards-loading-error>
+                    <!------------- Error Message End  ------------->
+                  </section>
+
                 </ng-template>
               <!------------- Hero Cards End  ------------->
-
-              <!------------- Error Message Start  ------------->
-              <!-- If ocurrs an error whit the hero list api response, this message will show  -->
-                <span *ngIf="isHttpRequestFails">Hay un error al cargar data</span>
-              <!------------- Error Message End  ------------->
             </div>
           </section>
         <!------------- Hero Cards End  ------------->
