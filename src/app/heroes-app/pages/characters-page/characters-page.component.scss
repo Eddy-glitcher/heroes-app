@@ -157,15 +157,34 @@
     }
 
     .characters-cards-container {
+      margin-top: 20px;
+
+      .hero-cards-paginator-container{
+        @include displayElements(flex,center,center);
+        flex-direction: column;
+        gap: 20px;
+      }
+
       .hero-cards-pagination-container{
-        margin-top: 20px;
         display: grid;
-        grid-template-rows: repeat(5, auto);
+        grid-template-rows: repeat(auto-fill, auto);
         place-content: center;
         gap: 20px;
       }
+
+      .hero-cards-paginator{
+        width: 150px;
+        height: 30px;
+      }
     }
   }
+}
+
+.hero-cards-centered-element{
+  display: grid;
+  grid-template-rows: repeat(auto-fill, auto);
+  place-items: center;
+  gap: 20px;
 }
 
 .custom-pagination{
@@ -249,12 +268,7 @@
     .characters-cards-container {
       .hero-cards-pagination-container{
         grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(3, auto);
-
-        .hero-cards-paginator{
-          grid-area: 3 / 1 / 4 / 3;
-        }
-
+        grid-template-rows: repeat(2, auto);
       }
     }
   }
@@ -280,13 +294,8 @@
   .characters-cards {
     .characters-cards-container {
       .hero-cards-pagination-container{
+        grid-template-rows: repeat(1, auto);
         grid-template-columns: repeat(4, auto);
-        grid-template-rows: repeat(2, auto);
-
-        .hero-cards-paginator{
-          grid-area: 2 / 1 / 5 / 5;
-        }
-
       }
     }
   }

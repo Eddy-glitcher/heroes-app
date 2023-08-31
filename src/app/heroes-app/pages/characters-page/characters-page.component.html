@@ -77,24 +77,33 @@
               <!------------- Skeleton Hero Cards Start  ------------->
               <!-- If the heroList is empty, these cards are loaded -->
                 <ng-container *ngIf="isHeroListLoading; else heroCards">
-                  <div class="hero-cards-pagination-container">
-                    <app-hero-card
-                      *ngFor="let card of generateHeroCards()"
-                      [isHeroListLoading]="isHeroListLoading">
-                    </app-hero-card>
-                  </div>
+                  <section class="hero-cards-paginator-container">
+                    <div class="hero-cards-pagination-container">
+                      <app-hero-card
+                        *ngFor="let card of generateHeroCards()"
+                        [isHeroListLoading]="isHeroListLoading">
+                      </app-hero-card>
+                    </div>
+                    <div class="hero-cards-paginator">
+
+                    </div>
+                  </section>
                 </ng-container>
               <!------------- Skeleton Hero Cards End  ------------->
 
               <!------------- Hero Cards Start  ------------->
               <!-- If the heroList is full, this cards are loaded -->
                 <ng-template #heroCards>
-                  <div class="hero-cards-pagination-container">
-                    <app-hero-card
-                      *ngFor="let hero of heroList | paginate: paginationConfig"
-                      [hero]="hero"
-                      >
-                    </app-hero-card>
+                  <section class="hero-cards-paginator-container">
+                    <div
+                    [ngClass]="heroList.length == 1 ? 'hero-cards-centered-element' : 'hero-cards-pagination-container'"
+                    >
+                      <app-hero-card
+                        *ngFor="let hero of heroList | paginate: paginationConfig"
+                        [hero]="hero"
+                        >
+                      </app-hero-card>
+                    </div>
                     <!------------- Paginator Start  ------------->
                     <pagination-template #paginationControls="paginationApi"
                         id="custom"
@@ -131,8 +140,8 @@
 
                         </div>
                     </pagination-template>
-                    <!------------- Paginator End  ------------->
-                  </div>
+                    <!----------- Paginator End  ------------->
+                  </section>
                 </ng-template>
               <!------------- Hero Cards End  ------------->
 
