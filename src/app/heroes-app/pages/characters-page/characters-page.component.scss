@@ -10,7 +10,7 @@
   background-size: cover;
 }
 
-.characters-stats {
+.characters-movies-stats {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -35,8 +35,8 @@
   }
 }
 
-.movie-progressbar-contanier {
-  .movie-progressbar-goals {
+.movie-progress-bar-contanier {
+  .movie-progress-bar-goals {
     position: relative;
     left: 10px;
     padding: 10px 10px;
@@ -49,7 +49,7 @@
     }
   }
 
-  .movie-progressbar {
+  .movie-progress-bar {
     padding: 8px;
     background-color: $primary-background-medium;
     transform: skew(-12deg);
@@ -60,14 +60,14 @@
       0 0 7px $secundary-color
   }
 
-  .movie-progressbar-stats {
+  .movie-progress-bar-stats {
     position: relative;
     background-color: $color-white;
     transform: skew(-6deg);
     -webkit-transform: skew(-6deg);
     -moz-transform: skew(-6deg);
 
-    .movie-progressbar-decoration {
+    .movie-progress-bar-decoration {
       position: absolute;
       display: grid;
       grid-template-columns: repeat(10, 1fr);
@@ -86,13 +86,13 @@
       }
     }
 
-    .movie-progressbar-stat {
+    .movie-progress-bar-stat {
       height: 15px;
       text-align: right;
       background: $primary-linear-gradient;
-      animation: progressbar-animated 600ms linear forwards;
+      animation: progress-bar-animated 600ms linear forwards;
 
-      .movie-progressbar-elements {
+      .movie-progress-bar-elements {
         position: relative;
         top: 35px;
         left: 10px;
@@ -107,7 +107,7 @@
       }
     }
 
-    @keyframes progressbar-animated {
+    @keyframes progress-bar-animated {
       from{
         width: 0%;
       }
@@ -146,13 +146,13 @@
     flex-direction: column;
     gap: 20px;
 
-    .character-searchbar-title {
+    .character-search-bar-title {
       color: $primary-color-light;
       text-align: center;
       font-size: $font-size-title-md;
     }
 
-    .hero-searchbar {
+    .hero-search-bar {
       z-index: 3;
     }
 
@@ -188,9 +188,7 @@
 }
 
 .custom-pagination{
-  display: flex;
-  place-items: center;
-  place-content: center;
+  @include displayElements(flex,center,center);
   gap: 10px;
 
   button{
@@ -240,36 +238,31 @@
 
   .characters-stats-container{
     padding: 120px 0px;
-    .characters-stats {
+
+    .characters-movies-stats {
       flex-direction: row;
       justify-content: space-between;
     }
   }
 
-  .movie-progressbar-contanier {
-    .movie-progressbar-goals {
+  .movie-progress-bar-contanier {
+    .movie-progress-bar-goals {
       font-size: $font-size-title-md;
     }
 
-    .movie-progressbar-stats {
-      .movie-progressbar-stat {
-        .movie-progressbar-elements {
-          font-size: $font-size-title-md;
-        }
-      }
+    .movie-progress-bar-stats .movie-progress-bar-stat .movie-progress-bar-elements{
+      font-size: $font-size-title-md;
     }
   }
 
   .characters-cards {
-    .hero-searchbar-title {
+    .hero-search-bar-title {
       font-size: $font-size-title-lg;
     }
 
-    .characters-cards-container {
-      .hero-cards-pagination-container{
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(2, auto);
-      }
+    .characters-cards-container .hero-cards-pagination-container{
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
     }
   }
 }
@@ -293,11 +286,9 @@
   }
 
   .characters-cards {
-    .characters-cards-container {
-      .hero-cards-pagination-container{
-        grid-template-rows: repeat(1, auto);
-        grid-template-columns: repeat(4, auto);
-      }
+    .characters-cards-container .hero-cards-pagination-container{
+      grid-template-rows: repeat(1, auto);
+      grid-template-columns: repeat(4, auto);
 
       .hero-cards-loading-error{
         width: max-content;

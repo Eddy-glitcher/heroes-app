@@ -4,18 +4,18 @@
       <div class="max-width-content">
 
         <!------------- Produced Films Bar Start  ------------->
-        <div class="characters-stats">
+        <div class="characters-movies-stats">
           <div class="characters-movie-bar characters-item-stat">
             <h2>{{ "Produced Film Progress" | uppercase }}</h2>
-            <div class="movie-progressbar-contanier">
-              <div class="movie-progressbar-goals">
+            <div class="movie-progress-bar-contanier">
+              <div class="movie-progress-bar-goals">
                 <span>100 Films</span>
                 <span>Production Goal</span>
                 <i class="fa-solid fa-arrow-down"></i>
               </div>
-              <div class="movie-progressbar">
-                <div class="movie-progressbar-stats">
-                  <ul class="movie-progressbar-decoration">
+              <div class="movie-progress-bar">
+                <div class="movie-progress-bar-stats">
+                  <ul class="movie-progress-bar-decoration">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -27,8 +27,8 @@
                     <li></li>
                     <li></li>
                   </ul>
-                  <div class="movie-progressbar-stat">
-                    <div class="movie-progressbar-elements">
+                  <div class="movie-progress-bar-stat">
+                    <div class="movie-progress-bar-elements">
                       <i class="fa-solid fa-arrow-up"></i>
                       <span>70 Films</span>
                       <span>Produced</span>
@@ -62,12 +62,12 @@
 
         <!------------- Hero Cards Start  ------------->
           <section class="characters-cards">
-            <div class="character-searchbar-title">
+            <div class="character-search-bar-title">
               <h2>{{ "Search The Hero" | uppercase }}</h2>
             </div>
 
-          <!------------- Debouncetime Hero Start  ------------->
-            <div class="hero-searchbar">
+            <!------------- Debouncetime Hero Start  ------------->
+            <div class="hero-search-bar">
               <app-debounce-hero-list
                 *ngIf="!isHttpRequestFails"
                 [heroList]="heroListCopy"
@@ -76,7 +76,7 @@
                 >
               </app-debounce-hero-list>
             </div>
-          <!------------- Debouncetime Hero End  ------------->
+            <!------------- Debouncetime Hero End  ------------->
 
             <div class="characters-cards-container">
 

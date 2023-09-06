@@ -6,6 +6,19 @@
   background-color: $primary-background;
   animation: floating-animation 1s ease-in-out normal;
 
+  @keyframes floating-animation{
+    0% {
+      opacity: 0;
+      transform: translatey(0px);
+    }
+    50% {
+      opacity: 1;
+      transform: translatey(-5px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
 
   article{
     text-align: center;
@@ -35,22 +48,3 @@
 
   }
 }
-
-// .cards-loading-error{
-  // animation: floating-animation 6s ease-in-out infinite;
-// }
-
-@keyframes floating-animation{
-	0% {
-    opacity: 0;
-		transform: translatey(0px);
-	}
-	50% {
-    opacity: 1;
-		transform: translatey(-5px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
-}
-// TODO!!:  Debo de hacer el commit con el nuevo componente para el error en la carga de las cards. Además debo de anexar los cambios en los demás componentes
