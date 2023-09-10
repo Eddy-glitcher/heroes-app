@@ -4,9 +4,9 @@
   padding: 90px 30px;
   border-radius: 10px;
   background-color: $primary-background;
-  animation: floating-animation 1s ease-in-out normal;
+  animation: floating 1s ease-in-out normal;
 
-  @keyframes floating-animation{
+  @keyframes floating{
     0% {
       opacity: 0;
       transform: translatey(0px);
@@ -39,12 +39,11 @@
       background-color: $primary-color-medium;
       opacity: 1;
       transition: opacity ease-in-out 300ms;
-    }
 
-    button:hover{
-      cursor: pointer;
-      opacity: 0.8;
+      &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+      }
     }
-
   }
 }
