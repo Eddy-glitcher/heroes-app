@@ -1,5 +1,6 @@
-@mixin displayElements($display, $distribution, $justify-align){
+@mixin displayElements($display,$direction,$distribution,$justify-align){
   display         : $display;
+  flex-direction  : $direction;
   justify-content : $distribution;
   place-items     : $justify-align;
 }
