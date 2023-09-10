@@ -9,17 +9,8 @@
     width: 248px;
     height: 448px;
     opacity: 0;
-    animation: fadeIn 1000ms ease-in-out forwards;
+    animation: FadeIn 1000ms ease-in-out forwards;
     }
-
-  @keyframes fadeIn{
-    0%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 1;
-    }
-  }
 
   .hero-cards__card-content{
     background: $secondary-linear-gradient;
@@ -37,7 +28,7 @@
 
   .hero-cards__front--card{
     transform: perspective(500px) rotateY(0deg);
-    
+
     &:hover{
       .hero-card__image-background{
         opacity: 0.9;
