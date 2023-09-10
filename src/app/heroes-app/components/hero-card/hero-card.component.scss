@@ -1,64 +1,130 @@
 @import '../../../../assets/styles/general-styles.scss';
 
-.hero-card-container{
+.hero-cards{
   width: max-content;
-  background: $secondary-linear-gradient;
-  border-radius: 5px;
-  border: solid 2px $color-grey-medium;
-}
 
-.hero-card{
-  @include displayElements(flex,space-between,center);
-  flex-direction: column;
-  width: 248px;
-  height: 448px;
-  padding: 25px 0px;
-  opacity: 0;
-  background: url('https://i.postimg.cc/kXvJ6Vx0/hero-card-background.png') center no-repeat;
-  background-size: cover;
-  animation: showHeroCard 1000ms ease-in-out forwards;
-
-  @keyframes showHeroCard{
-    0%{
-      opacity: 0;
+  .hero-cards__card{
+    position: relative;
+    @include displayElements(flex,column,space-between,center);
+    width: 248px;
+    height: 448px;
+    opacity: 0;
+    animation: FadeIn 1000ms ease-in-out forwards;
     }
-    100%{
-      opacity: 1;
+
+  .hero-cards__card-content{
+    background: $secondary-linear-gradient;
+
+    .hero-cards__image-background{
+      @include displayElements(flex,column,space-between,center);
+      width: 100%;
+      height: 100%;
+      padding: 25px 0px;
+      text-align: center;
+      background: url('https://i.postimg.cc/kXvJ6Vx0/hero-back-cardground.png') no-repeat center;
+      background-size: cover;
     }
   }
 
-  .hero-name{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    padding: 0px 10px;
+  .hero-cards__front--card{
+    transform: perspective(500px) rotateY(0deg);
 
-    @include displayElements(flex,space-between,flex-start);
+    &:hover{
+      .hero-card__image-background{
+        opacity: 0.9;
+        transform: rotate(20deg) scale(1.1);
+      }
 
-    .hero-name-text-loading{
+      .hero-card__full-info{
+        opacity: 1;
+
+        &:hover::before{
+          width: 100%;
+        }
+      }
+
+      .hero-card__full-info::before {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0px;
+        height: 2px;
+        background-color: $primary-color-medium;
+        content: "";
+        transform: translateX(-50%);
+        transition: width 0.3s ease-out;
+      }
+
+      .hero-card__image-poster{
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .hero-card{
+
+    .hero-card__name{
+      @include displayElements(flex,row,space-between,flex-start);
+      gap: 20px;
+      width: 100%;
+      padding: 0px 10px;
+    }
+
+    .hero-card__loading-name{
       width: 100%;
       height: 40px;
     }
 
-    .hero-name-text{
+    .hero-card__name-text{
       width: 110px;
+      color: $primary-color;
       font-size: $font-size-title-md;
-      text-align: center;
-      color: $primary-color-light;
     }
-  }
 
-  .hero-image{
-    position: relative;
-    @include displayElements(flex,center,center);
-    flex-direction: column;
-    place-content: center;
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
+    .hero-card__image{
+      position: relative;
+      @include displayElements(flex,column,center,center);
+      place-content: center;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+    }
 
-    .hero-image-background{
+    .hero-card__image-container{
+      position: absolute;
+      @include displayElements(flex,row,center,center);
+      place-content: center;
+      border: solid 2px $color-blue;
+      background-color: $color-blue-dark;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-card__image--size{
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+    }
+
+    .hero-card__full-info{
+      position: absolute;
+      color: $primary-color-light;
+      font-size: $font-size-title-lg;
+      z-index: 2;
+      opacity: 0;
+      background-color: transparent;
+      cursor: pointer;
+      transition: opacity 300ms ease-in-out;
+    }
+
+    .hero-card__image-poster{
+      width: 120px;
+      height: 120px;
+      opacity: 1;
+      transition: opacity 300ms ease-in-out;
+    }
+
+    .hero-card__image-background{
       position: absolute;
       left: 11px;
       width: 100%;
@@ -67,109 +133,131 @@
       transition: opacity,transform 300ms ease-in-out;
     }
 
-    .hero-image-poster-size{
-      width: 120px;
-      height: 120px;
-      border-radius: 100%;
-    }
-
-    .hero-image-poster{
-      position: absolute;
-      @include displayElements(flex,center,center);
-      place-content: center;
-      border: solid 2px $color-blue;
-      background-color: $color-blue-dark;
-      z-index: 1;
-      overflow: hidden;
-
-      .hero-full-info{
-        position: absolute;
-        color: $primary-color-light;
-        font-size: $font-size-title-lg;
-        z-index: 2;
-        opacity: 0;
-        background-color: transparent;
-        cursor: pointer;
-        transition: opacity 300ms ease-in-out;
-      }
-
-      img{
-        width: 120px;
-        height: 120px;
-        opacity: 1;
-        transition: opacity 300ms ease-in-out;
-      }
-    }
-  }
-
-  .hero-comics-movies{
-    ul{
+    .hero-card__comics-series-list{
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .hero-comics-movies-item{
-      width: 160px;
-      height: 40px
-    }
-
     li{
-      @include displayElements(flex,center,center);
+      @include displayElements(flex,row,center,center);
       gap: 20px;
       padding: 10px;
-      color: $primary-color-light;
       border-radius: 5px;
       border: solid 1px $color-grey ;
+      color: $primary-color-light;
       font-size: $font-size-title-md;
       background-color: $color-blue-dark;
-
-      span{
-        font-size:  $font-size-title-xl;
-      }
     }
 
-    .hero-comics-movies-item-resets{
+    .hero-card__comics-series-item{
+      width: 160px;
+      height: 40px;
+    }
+
+    .hero-card__comics-series-resets{
+      border: none;
+      background: none;
+      padding: 0px;
+    }
+
+    .hero-card__comics-series-count{
+      font-size:  $font-size-title-xl;
+    }
+
+    .hero-comics-series-item-resets{
       border: none;
       padding: 0px;
     }
   }
-}
 
-.hero-card:hover{
-
-  .hero-image-background{
-    opacity: 0.9;
-    transform: rotate(20deg) scale(1.1);
+  .hero-cards__front--card, .hero-cards__back--card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: solid 2px $color-grey-medium;
+    backface-visibility: hidden;
+    transition: transform 1s ease-in-out;
   }
 
-  .hero-image{
+  .hero__cards-hide-front--card{
+    transform: perspective(500px) rotateY(180deg);
+  }
 
-    .hero-image-poster{
-      .hero-full-info{
-        opacity: 1;
+  .hero-cards__back--card{
+    transform: perspective(500px) rotateY(180deg);
+
+    .hero-back-card__info{
+      @include displayElements(flex,column,space-between,center);
+      gap: 20px;
+
+      .hero-back-card__name{
+        height: 40px;
+        margin: 0px auto;
+        padding: 0px 20px;
+        color: $primary-color;
+        font-size: $font-size-title-xl;
       }
 
-      .hero-full-info::before {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        background-color: $primary-color-medium;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.3s ease-out;
+      .hero-back-card__description{
+        padding: 0px 10px;
+        text-align: left;
+        font-size: $font-size-title-lg;
+      }
+    }
+
+    .hero-back-card__resources{
+      width: 100%;
+    }
+
+    .hero-back-card__resources-info{
+      @include displayElements(flex,row,center,center);
+      gap: 10px;
+    }
+
+    .hero-back-card__btn-info{
+      width: 45%;
+      cursor: pointer;
+      border-radius: 5px;
+      border: solid 1px $color-grey-medium;
+      font-size: $font-size-title-sm;
+      background: $secondary-linear-gradient;
+      overflow: hidden;
+
+      &:hover{
+        a{
+          color: $primary-color;
+        }
       }
 
-      .hero-full-info:hover::before {
+      a{
+        display: block;
         width: 100%;
+        height: 100%;
+        padding: 10px;
+        color: $primary-color-light;
+        text-decoration: none;
+        transition: color 300ms ease-in-out;
       }
+    }
 
-      img{
-        opacity: 0.3;
+    .hero-back-card__btn-close{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: $primary-color-medium;
+      font-size: $font-size-title-lg;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover{
+        opacity: 0.8;
       }
     }
   }
 
+  .hero-cards__show-back-card{
+    transform: perspective(500px) rotateY(360deg);
+  }
 }

@@ -28,6 +28,7 @@ export class CharactersPageComponent implements OnInit{
     return `${paginationControls.getCurrent()} / ${Math.ceil(this.heroList.length / this.paginationConfig.itemsPerPage)}`
   }
 
+  // Generate the skeleton loader cards by the items per paginator page
   generateHeroCards(): number[] {
     return Array.from({ length: this.paginationConfig.itemsPerPage }, (_, index) => index);
   }
@@ -61,7 +62,7 @@ export class CharactersPageComponent implements OnInit{
   }
 
   // To restart the heroes List
-  resetHeroList(){
+  resetHeroList(): void{
     if (this.heroList == this.heroListCopy) {
       return;
     }else{
@@ -69,9 +70,10 @@ export class CharactersPageComponent implements OnInit{
     }
   }
 
-  constructor(private heroService : MarvelHeroesService){}
-
-  ngOnInit(): void {
+  // To get the heroes list from Marvel Api
+  getHeroesData(){
+    this.isHeroListLoading = true;
+    this.isHttpRequestFails = false;
     this.heroService.getMarvelHeroes().subscribe({
       next: (heroList) => { // Get the herolist if there are no errors.
 
@@ -82,10 +84,17 @@ export class CharactersPageComponent implements OnInit{
         this.heroListCopy = heroList;
         this.isHeroListLoading = false;
       },
+      // To control the http error response and displays the error message
       error: (error : HttpErrorResponse) => {
         this.isHttpRequestFails = true;
         this.isHeroListLoading = false;
       }
     });
+  }
+
+  constructor(private heroService : MarvelHeroesService){}
+
+  ngOnInit(): void {
+    this.getHeroesData();
   }
 }

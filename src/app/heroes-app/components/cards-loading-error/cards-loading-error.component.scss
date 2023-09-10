@@ -1,0 +1,49 @@
+@import '../../../../assets/styles/general-styles.scss';
+
+.error-message{
+  padding: 90px 30px;
+  border-radius: 10px;
+  background-color: $primary-background;
+  animation: floating 1s ease-in-out normal;
+
+  @keyframes floating{
+    0% {
+      opacity: 0;
+      transform: translatey(0px);
+    }
+    50% {
+      opacity: 1;
+      transform: translatey(-5px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+
+  article{
+    text-align: center;
+
+    h2{
+      color: $primary-color-medium;
+    }
+
+    p{
+      margin: 20px 0px;
+      font-size: $font-size-title-lg;
+      color: $primary-color-light;
+    }
+
+    button{
+      padding: 10px 50px;
+      color: $color-white;
+      background-color: $primary-color-medium;
+      opacity: 1;
+      transition: opacity ease-in-out 300ms;
+
+      &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}

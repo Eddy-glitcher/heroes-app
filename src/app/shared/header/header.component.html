@@ -1,6 +1,6 @@
-<section class="header__container" #menuOptions>
-  <div class="header-content">
-    <div class="header-logo">
+<section class="header" #menuOptions>
+  <div class="header__content">
+    <div class="header__logo">
       <picture>
         <img
           src="https://i.postimg.cc/gJbbFfbW/Marvel-Logo.png"
@@ -9,11 +9,15 @@
       </picture>
     </div>
 
-    <div class="header-menu">
-      <button aria-label="Show/Hide Menu">
+    <div class="header__menu">
+      <button
+        aria-label="Show/Hide Menu"
+        (click)="
+          isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(isMenuBarOpen);
+        "
+      >
         <i
           class="fa-solid"
-          (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(isMenuBarOpen);"
           [ngClass]="isMenuBarOpen ? 'fa-xmark' : 'fa-bars'"
         ></i>
       </button>
@@ -21,33 +25,85 @@
   </div>
 
   <nav
-    class="header-routes"
-    [ngClass]="isMenuBarOpen ? 'show-header-routes' : ''"
+    class="header__routes menu"
+    [ngClass]="isMenuBarOpen ? 'header__show--routes' : ''"
   >
     <ul>
-      <li routerLink="/Heroes/Home" routerLinkActive="active-route"
-      (click)="isMenuBarOpen = !isMenuBarOpen"
+      <li
+        class="menu__route"
+        routerLink="/Heroes/Home"
+        routerLinkActive="menu__active-route"
+        (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(false);"
       >
-        <img
-          class="active-route-icon"
-          src="../../../assets/img/active-route-icon.svg"
-          alt="Active route icon"
-        />
-        HOME <span class="active-route-border"></span>
+        <svg
+          class="menu__route-icon"
+          width="42"
+          height="20"
+          viewBox="0 0 42 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M34.5353 0.00468274H34.5402L33.1437 0H33.1387L24.6168 0.00468274L21.0025 3.1468L17.3832 0.00468274H8.86126L7.45978 0H7.4647L0 0.00468274L20.9975 20L42 0.00468274H34.5353ZM16.8128 1.40951L21.0074 5.05268L25.1872 1.40951H31.6488L20.9975 11.4634L10.3512 1.40951H16.8128ZM3.56024 1.40951H8.94977L20.9975 12.7792L33.0453 1.40951H38.4348L20.9975 18.0145L3.56024 1.40951Z"
+            fill="url(#paint0_linear_2577_456)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_2577_456"
+              x1="21"
+              y1="0"
+              x2="21"
+              y2="20"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#95753E" />
+              <stop offset="0.328125" stop-color="#C8A765" />
+              <stop offset="0.682292" stop-color="#D5B36D" />
+              <stop offset="1" stop-color="#9C7D42" />
+            </linearGradient>
+          </defs>
+        </svg>
+        HOME <span class="menu__active-route-border"></span>
       </li>
-      <li routerLink="/Heroes/Characters" routerLinkActive="active-route"
-      (click)="isMenuBarOpen = !isMenuBarOpen"
+      <li
+        class="menu__route"
+        routerLink="/Heroes/Characters"
+        routerLinkActive="menu__active-route"
+        (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(false);"
       >
-        <img
-          class="active-route-icon"
-          src="../../../assets/img/active-route-icon.svg"
-          alt="Active route icon"
-        />
-        CHARACTERS <span class="active-route-border"></span>
+        <svg
+          class="menu__route-icon"
+          width="42"
+          height="20"
+          viewBox="0 0 42 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M34.5353 0.00468274H34.5402L33.1437 0H33.1387L24.6168 0.00468274L21.0025 3.1468L17.3832 0.00468274H8.86126L7.45978 0H7.4647L0 0.00468274L20.9975 20L42 0.00468274H34.5353ZM16.8128 1.40951L21.0074 5.05268L25.1872 1.40951H31.6488L20.9975 11.4634L10.3512 1.40951H16.8128ZM3.56024 1.40951H8.94977L20.9975 12.7792L33.0453 1.40951H38.4348L20.9975 18.0145L3.56024 1.40951Z"
+            fill="url(#paint0_linear_2577_456)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_2577_456"
+              x1="21"
+              y1="0"
+              x2="21"
+              y2="20"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#95753E" />
+              <stop offset="0.328125" stop-color="#C8A765" />
+              <stop offset="0.682292" stop-color="#D5B36D" />
+              <stop offset="1" stop-color="#9C7D42" />
+            </linearGradient>
+          </defs>
+        </svg>
+        CHARACTERS <span class="menu__active-route-border"></span>
       </li>
     </ul>
 
-    <div class="social-media-contact">
+    <div class="header__social-media">
       <a
         href="https://github.com/Eddy-glitcher"
         target="_blank"

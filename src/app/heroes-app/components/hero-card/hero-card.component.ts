@@ -17,6 +17,7 @@ export class HeroCardComponent implements OnInit, OnDestroy{
   count: number = 1;
   widthHeightSizeInPixels: number = 50;
   intervalId: number | null = null;
+  isFlipHeroCardActive : boolean = false;
 
   // Skeleton cards animation Styles
   skeletonItemsLoadingStyles = {

@@ -1,31 +1,28 @@
 @import '../../../../assets/styles/general-styles.scss';
 
-
-.home-container{
-  .home-title{
+.home{
+  .home__title{
     text-align: center;
 
     h1,span{
+      color: $primary-color-light;
       font-size: $font-size-title-lg;
       display: inline;
     }
 
-    h1{
-      color: $primary-color-light;
-    }
     span{
       color: $primary-color-medium;
     }
   }
 
-  .marvel-hero-images{
+  .home__hero-images{
     margin-top: 30px;
   }
 }
 
 @media (min-width: 740px){
-  .home-container{
-    .home-title{
+  .home{
+    .home__title{
       h1,span{
         font-size: $font-size-title-xl;
       }

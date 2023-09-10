@@ -1,6 +1,6 @@
 @import '../../../../assets/styles/general-styles.scss';
 
-.slider-container{
+.slider{
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -12,23 +12,33 @@
     max-width: 300px;
     height: 550px;
     opacity: 0;
-    animation: fade-in-out-border 1s ease-in-out forwards;
+    animation: FadeIn 1000ms ease-in-out forwards;
+
+    &:hover{
+      img {
+        border: solid 1px $primary-color;
+      }
+
+      figcaption div {
+        transform: none;
+      }
+    }
   }
 
-  .first-hero-image{
+  .slider__first-hero-image{
+    animation-delay:  0.5s;
+  }
+
+  .slider__second-hero-image{
     animation-delay:  1s;
   }
 
-  .second-hero-image{
+  .slider__third-hero-image{
+    animation-delay:  1.5s;
+  }
+
+  .slider__fourth-hero-image{
     animation-delay:  2s;
-  }
-
-  .third-hero-image{
-    animation-delay:  3s;
-  }
-
-  .fourth-hero-image{
-    animation-delay:  4s;
   }
 
   img{
@@ -53,16 +63,6 @@
     }
   }
 
-  figure:hover {
-      img {
-        border: solid 1px $primary-color;
-      }
-  }
-
-  figure:hover figcaption div {
-    transform: none;
-  }
-
   figcaption::before,
   figcaption::after {
     content: '';
@@ -74,7 +74,7 @@
     background-color: rgba($primary-color, 0.5);
     transform: scaleY(0);
     transform-origin: bottom;
-    transition: .3s ease-in-out;
+    transition: transform .3s ease-in-out;
     z-index: -1;
   }
 
@@ -107,17 +107,5 @@
 
   figcaption > div div{
     transform: translateY(-100%);
-  }
-}
-
-@keyframes fade-in-out-border {
-  0%{
-    opacity: 0;
-  }
-  80%{
-    opacity: 0.9;
-  }
-  100%{
-    opacity: 1;
   }
 }

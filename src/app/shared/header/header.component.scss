@@ -1,194 +1,185 @@
 @import '../../../assets/styles/general-styles.scss';
 
-.header__container{
+.header{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr auto;
   height: 100px;
   background-color: $primary-background;
-}
 
-.header-content{
-  @include displayElements(flex, space-between, center);
-  grid-area: 1 / 1 / 2 / 3;
-  padding: 10px;
-  border-bottom: solid 1px $color-grey-medium;
-}
-
-.header-logo{
-  display: flex;
-  align-content: center;
-
-  img{
-    width: 150px;
-    height: 100%;
-  }
-}
-
-.header-menu{
-  font-size: $font-size-icon-md;
-
-  button{
-    color: $primary-color-medium;
-    background-color: transparent;
+  .header__content{
+    @include displayElements(flex,row,space-between,center);
+    grid-area: 1 / 1 / 2 / 3;
+    padding: 10px;
+    border-bottom: solid 1px $color-grey-medium;
   }
 
-  .fa-xmark{
-    font-size: $font-size-icon-lg;
+  .header__logo{
+    display: flex;
+    place-content: center;
+
+    img{
+      width: 150px;
+      height: 100%;
+    }
   }
 
-}
+  .header__menu{
+    font-size: $font-size-icon-md;
 
-.header-routes{
-  grid-area: 2 / 1 / 3 / 3;
-  position: absolute;
-  top: 100px;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  background-color: $primary-background-dark;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 2;
+    button{
+      @include displayElements(flex,row,center,center);
+      color: $primary-color-medium;
+      background-color: transparent;
+    }
 
-  li{
-    @include displayElements(flex, center, unset);
-    position: relative;
-    padding: 30px 0px;
-    color: $primary-color-light;
-    font-size: $font-size-title-lg;
-    text-shadow: 0px 0px 4px $color-grey-light;
-    background-color: $primary-background-light;
+    .fa-xmark{
+      font-size: $font-size-icon-lg;
+    }
   }
 
-  .active-route-icon{
+  .header__routes{
     position: absolute;
-    top: 0px;
-    height: 0px;
-    transition: height ease-in-out 300ms;
-  }
-
-  .active-route-border{
-    position: absolute;
+    top: 100px;
+    grid-area: 2 / 1 / 3 / 3;
     width: 100%;
-    bottom: 0px;
-    border-bottom: solid 0px transparent;
-    transition: border-bottom ease-in-out 300ms;
+    opacity: 0;
+    visibility: hidden;
+    background-color: $primary-background-dark;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 2;
   }
 
-  .active-route{
-    color: $primary-color-medium;
-    background: $primary-active-color-route;
-
-    .active-route-icon{
-      height: 20px;
-    }
-    .active-route-border{
-      border-bottom: solid 4px $primary-color-medium;
-    }
-  }
-
-  .social-media-contact{
-    @include displayElements(flex, center, center);
-    gap: 15px;
-    padding: 20px;
-    font-size: $font-size-icon;
-    height: 100%;
-
-    .fa-brands{
-      opacity: 0;
-      transition: transform ease-in-out 300ms;
-      animation: social-media-apperance ease-in 1s forwards;
-    }
-
-    .fa-github{
-      color: #51058C;
-    }
-
-    .fa-github:hover{
-      color: #5523a0;
-    }
-
-    .fa-linkedin{
-      color: #0077B5;
-    }
-
-    .fa-linkedin:hover{
-      color: #0096e7;
-    }
-
-    .fa-brands:hover{
-      cursor: pointer;
-      transform: scale(1.3);
-    }
-  }
-}
-
-@keyframes social-media-apperance {
-  0%{
-    opacity: 0px;
-  }
-  100%{
+  .header__show--routes{
     opacity: 1;
+    visibility: visible;
   }
-}
 
-.show-header-routes{
-  opacity: 1;
-  visibility: visible;
+  .menu{
+    .menu__route{
+      position: relative;
+      @include displayElements(flex,row,center,center);
+      padding: 30px 0px;
+      color: $primary-color-light;
+      font-size: $font-size-title-lg;
+      text-shadow: 0px 0px 4px $color-grey-light;
+      background-color: $primary-background-light;
+    }
+
+    .menu__route-icon{
+      position: absolute;
+      top: 0px;
+      height: 0px;
+      transition: height ease-in-out 300ms;
+    }
+
+    .menu__active-route-border{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      border-bottom: solid 0px transparent;
+      transition: border-bottom ease-in-out 300ms;
+    }
+
+    .menu__active-route{
+      color: $primary-color-medium;
+      background: $primary-active-color-route;
+
+      .menu__route-icon{
+        height: 20px;
+      }
+
+      .menu__active-route-border{
+        border-bottom: solid 4px $primary-color-medium;
+      }
+    }
+
+    .header__social-media{
+      @include displayElements(flex,row,center,center);
+      gap: 15px;
+      padding: 20px;
+      font-size: $font-size-icon;
+      height: 100%;
+
+      .fa-brands{
+        opacity: 0;
+        transition: transform ease-in-out 300ms;
+        animation: FadeIn ease-in 1000ms forwards;
+
+        &:hover{
+          cursor: pointer;
+          transform: scale(1.3);
+        }
+      }
+
+      .fa-github{
+        color: #51058C;
+
+        &:hover{
+          color: #5523a0;
+        }
+      }
+
+      .fa-linkedin{
+        color: #0077B5;
+
+        &:hover{
+          color: #0096e7;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 740px){
-  .header__container{
+  .header{
     grid-template-columns: min-content;
     grid-template-rows: 1fr;
     height: 100px;
     border-bottom: solid 1px $color-grey;
-    background-color: $primary-background ;
-  }
+    background-color: $primary-background;
 
-  .header-content{
-    grid-area: 1 / 1 / 1 / 2;
-    border-bottom: none;
-    background-color: none;
-  }
-
-  .header-menu{
-    display: none;
-  }
-
-  .header-routes{
-    @include displayElements(flex, space-between, center);
-    grid-area: 1 / 2 / 1 / 3;
-    position: static;
-    top: 0px;
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-
-
-    ul{
-      display: grid;
-      grid-template-rows: auto;
-      grid-template-columns: repeat(2, 120px);
-      justify-items: stretch;
-      width: max-content;
-      height: 100%;
+    .header__content{
+      grid-area: 1 / 1 / 1 / 2;
+      border-bottom: none;
     }
 
-    li{
-      align-items: center;
-      place-content: center;
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      padding: 0px 10px;
-      background-color: transparent;
+    .header__menu{
+      display: none;
     }
 
-    li:hover{
-      color: $primary-color;
-      cursor: pointer;
+    .header__routes{
+      position: static;
+      top: 0px;
+      @include displayElements(flex,row,space-between,center);
+      grid-area: 1 / 2 / 1 / 3;
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu{
+      ul{
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 120px);
+        justify-items: stretch;
+        width: max-content;
+        height: 100%;
+      }
+
+      .menu__route{
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 0px 10px;
+        background-color: transparent;
+
+        &:hover{
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
     }
   }
-
 }
