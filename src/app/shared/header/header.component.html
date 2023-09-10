@@ -13,7 +13,7 @@
       <button
         aria-label="Show/Hide Menu"
         (click)="
-          isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(isMenuBarOpen)
+          isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(isMenuBarOpen);
         "
       >
         <i
@@ -33,7 +33,7 @@
         class="menu__route"
         routerLink="/Heroes/Home"
         routerLinkActive="menu__active-route"
-        (click)="isMenuBarOpen = !isMenuBarOpen"
+        (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(false);"
       >
         <svg
           class="menu__route-icon"
@@ -69,7 +69,7 @@
         class="menu__route"
         routerLink="/Heroes/Characters"
         routerLinkActive="menu__active-route"
-        (click)="isMenuBarOpen = !isMenuBarOpen"
+        (click)="isMenuBarOpen = !isMenuBarOpen; sendMenuBarState(false);"
       >
         <svg
           class="menu__route-icon"
