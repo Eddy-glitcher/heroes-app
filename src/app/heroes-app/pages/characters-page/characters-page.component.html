@@ -71,6 +71,7 @@
 
             <app-debounce-hero-list
               class="heroes__option-list"
+              [ngClass]="heroList.length == 0 ? 'heroes__option-list--disabled' : ''"
               *ngIf="!isHttpRequestFails"
               [heroList]="heroListCopy"
               (onSearchSelectedHero)="seachSelectedHero($event)"
