@@ -159,6 +159,10 @@
       text-align: left;
     }
 
+    .heroes__option-list--disabled{
+      pointer-events: none;
+    }
+
     .heroes__cards-container {
       margin-top: 20px;
     }

@@ -59,6 +59,7 @@ export class CharactersPageComponent implements OnInit{
       return hero.name.toLowerCase().includes(heroName.toLowerCase());
     });
     this.isHeroListLoading = false;
+    this.paginationConfig.currentPage = 1;
   }
 
   // To restart the heroes List
