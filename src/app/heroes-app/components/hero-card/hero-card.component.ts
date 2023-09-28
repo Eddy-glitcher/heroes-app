@@ -13,18 +13,18 @@ export class HeroCardComponent implements OnInit, OnDestroy{
   @Input() isHeroListLoading?: boolean;
 
   // Skeleton cards animation Assets
-  animation : string = 'pulse';
-  count: number = 1;
-  widthHeightSizeInPixels: number = 50;
-  intervalId: number | null = null;
-  isFlipHeroCardActive : boolean = false;
+  count                   : number = 1;
+  animation               : string = 'pulse';
+  intervalId              : number | null = null;
+  isFlipHeroCardActive    : boolean = false;
+  widthHeightSizeInPixels : number = 50;
 
   // Skeleton cards animation Styles
   skeletonItemsLoadingStyles = {
-    width: '100%',
-    height: '100%',
-    margin: '0px auto',
-    'background-color': '#232A30',
+    width  : '100%',
+    height : '100%',
+    margin : '0px auto',
+    'background-color'  : '#232A30',
     'animation-duration': '2s'
   }
 

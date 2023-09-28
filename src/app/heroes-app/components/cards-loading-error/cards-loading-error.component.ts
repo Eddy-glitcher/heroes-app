@@ -9,8 +9,8 @@ export class CardsLoadingErrorComponent {
 
   // To get the heroes cards again if an errors ocurrs
   @Output() onGetHeroesData : EventEmitter<void> = new EventEmitter;
-  getHeroesData(){
+
+  getHeroesData(): void{
     this.onGetHeroesData.emit();
   }
-  
 }

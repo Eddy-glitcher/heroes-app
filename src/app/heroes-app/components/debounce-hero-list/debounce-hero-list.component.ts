@@ -33,40 +33,44 @@ export class DebounceHeroListComponent {
 
   // To search the hero in the list of heroes
   searchHeroByName(heroName: string): void{
-    this.heroForm.controls[heroName].valueChanges.pipe(
-      tap(()=>{
 
-      // To show o hide the searchbar cleaner icon
-      (this.heroForm.controls[heroName].value !== '') ?
-                            this.isTextBoxEmpty = true :
-                            this.isTextBoxEmpty = false;
+    // If the control exist execute the sentences bellow
+    if(this.heroForm.controls[heroName]){
+      this.heroForm.controls[heroName].valueChanges.pipe(
+        tap(()=>{
 
-      // To show or hide the search message when the user types it in the search box
-      (this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 &&
-      !this.isHeroSearchedExist)     ?
-      this.isHeroSearchActive = true :
-      this.isHeroSearchActive = false;
+        // To show o hide the searchbar cleaner icon
+        (this.heroForm.controls[heroName].value !== '') ?
+                              this.isTextBoxEmpty = true :
+                              this.isTextBoxEmpty = false;
 
-      }),
-      // This debounceTime function delays the function execution
-      debounceTime(300),
-      ).subscribe( (value: string) =>{
-        // If the entrie it´s included in the heroList, the hero name will be saved in the debounceList
-        this.debounceHeroList =  this.heroList.filter((hero): boolean | void =>{
-          if(value){
-            return hero.name.toLowerCase().includes(value.toLowerCase());
+        // To show or hide the search message when the user types it in the search box
+        (this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 &&
+        !this.isHeroSearchedExist)     ?
+        this.isHeroSearchActive = true :
+        this.isHeroSearchActive = false;
+
+        }),
+        // This debounceTime function delays the function execution
+        debounceTime(300),
+        ).subscribe( (value: string) =>{
+          // If the entrie it´s included in the heroList, the hero name will be saved in the debounceList
+          this.debounceHeroList =  this.heroList.filter((hero): boolean | void =>{
+            if(value){
+              return hero.name.toLowerCase().includes(value.toLowerCase());
+            }
+          });
+
+          // To show or hide the search message and not found error message
+          if(this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
+            this.isHeroSearchedExist = true;
+            this.isHeroSearchActive  = false;
+          }else{
+            this.isHeroSearchedExist = false;
+            this.isHeroSearchActive  = false;
           }
         });
-
-        // To show or hide the search message and not found error message
-        if(this.heroForm.controls[heroName].value !== '' && this.debounceHeroList.length == 0 && this.isHeroSearchActive == false){
-          this.isHeroSearchedExist = true;
-          this.isHeroSearchActive  = false;
-        }else{
-          this.isHeroSearchedExist = false;
-          this.isHeroSearchActive  = false;
-        }
-      });
+    }
   }
 
   // To select the hero and execute the search event emmiter to find the selected hero
