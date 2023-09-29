@@ -42,6 +42,7 @@
             : 'searchbar__hide-clean--icon'
         "
         (click)="cleanHeroFormEntrie('name')"
+        data-test="btn-clean-form"
       >
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
@@ -57,6 +58,7 @@
         <li
           *ngFor="let hero of debounceHeroList.slice(0, 5)"
           (click)="searchSelectedHero(hero.name, 'name')"
+          data-test="btn-select-hero"
         >
           {{ hero.name }}
         </li>

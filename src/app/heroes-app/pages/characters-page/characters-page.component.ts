@@ -89,6 +89,7 @@ export class CharactersPageComponent implements OnInit{
       error: (error : HttpErrorResponse) => {
         this.isHttpRequestFails = true;
         this.isHeroListLoading = false;
+        console.log('Hay un error: ',error);
       }
     });
   }
