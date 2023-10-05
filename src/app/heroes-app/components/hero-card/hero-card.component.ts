@@ -6,10 +6,11 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
   styleUrls: ['./hero-card.component.scss']
 })
 export class HeroCardComponent implements OnInit, OnDestroy{
-  // This is the hero data that will be load on cards
+
+  // This is the hero data that will be loaded onto cards
   @Input() hero!: MarvelHero;
 
-  // This boolean will be load the skeleton cards or the hero cards
+  // This boolean will determine whether to load the skeleton cards or the hero cards.
   @Input() isHeroListLoading?: boolean;
 
   // Skeleton cards animation Assets

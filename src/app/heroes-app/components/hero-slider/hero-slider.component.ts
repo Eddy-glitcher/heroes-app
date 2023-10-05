@@ -9,7 +9,7 @@ import { HeroeImages } from '../../interfaces/heroe-images';
 })
 export class HeroSliderComponent {
 
-  // List of Hero images that are received from the parent component
+  // List of hero images received from the parent component.
   @Input() heroImageList: HeroeImages[] = [];
 
   // Slider assets

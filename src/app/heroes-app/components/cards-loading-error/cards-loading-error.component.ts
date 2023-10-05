@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class CardsLoadingErrorComponent {
 
-  // To get the heroes cards again if an errors ocurrs
+  // To retrieve the hero cards again in case of an error
   @Output() onGetHeroesData : EventEmitter<void> = new EventEmitter;
 
   getHeroesData(): void{
