@@ -73,7 +73,7 @@ export class DebounceHeroListComponent {
     }
   }
 
-  // To select the hero and execute the search event emmiter to find the selected hero
+  // To select the hero and execute the search event emitter to find the selected hero
   searchSelectedHero(hero : string, heroFormEntrie : string): void{
     this.heroForm.controls[heroFormEntrie].setValue(hero);
     this.showHeroListOptions = false;

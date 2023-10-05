@@ -11,10 +11,10 @@ import { MarvelHero } from '../../interfaces/marvel-heroes';
 })
 export class CharactersPageComponent implements OnInit{
 
-  heroList : MarvelHero[] = [];
-  heroListCopy : MarvelHero[] = [];
+  heroList           : MarvelHero[] = [];
+  heroListCopy       : MarvelHero[] = [];
   isHttpRequestFails : boolean = false;
-  isHeroListLoading : boolean = true;
+  isHeroListLoading  : boolean = true;
 
   // Pagination Assets
   paginationConfig: PaginationInstance = {
@@ -62,7 +62,7 @@ export class CharactersPageComponent implements OnInit{
     this.paginationConfig.currentPage = 1;
   }
 
-  // To restart the heroes List
+  // To reset the heroes List
   resetHeroList(): void{
     if (this.heroList == this.heroListCopy) {
       return;

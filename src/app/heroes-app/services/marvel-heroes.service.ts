@@ -9,12 +9,12 @@ import { MarvelHero, MarvelHeroes } from '../interfaces/marvel-heroes';
 })
 export class MarvelHeroesService {
 
-  // Marvel Api assets to make the http request
+  // The Marvel API assets needed to make the HTTP request
   apiBaseUrl : string = environment.apiBaseUrl;
   apiKey     : string = environment.apiKey;
   apiHash    : string = environment.apiHash;
 
-  // To get the heroe list of marvel api
+  // To get the heroe list of Marvel Api
   getMarvelHeroes(): Observable<MarvelHero[]>{
     const apiUrl = `${this.apiBaseUrl}/characters?ts=1&apikey=${this.apiKey}&hash=${this.apiHash}&limit=100`; // To build the end point api request
     return this.httpRequest.get<MarvelHeroes>(apiUrl).pipe(
