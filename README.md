@@ -1,8 +1,10 @@
 #  Marvel Universe App
 
-The Marvel Universe is an application to show, search and learn about the Marvel heroes, this application is Based on the [Marvel API](http://https://developer.marvel.com/docs "Marvel API")
+The Marvel Universe is an application to show, search and learn about the Marvel heroes, this application is Based on the [Marvel API](https://developer.marvel.com/ "Marvel API")
 
 The purpose of The Marvel Universe application is to learn and practice the Angular methodologies, strategies and best practices, Typescript, Javascript, Html, Scss, Git and Github and aslo for fun and knowledge.
+
+The [Marvel Universe](https://marvel-universe-app.netlify.app/Heroes/Home "Marvel Universe") project is live.
 
 [![Marvel-Universe-Home](https://i.postimg.cc/jS7fRhMQ/Marvel-Universe-Home.png "Marvel-Universe-Home")](https://i.postimg.cc/jS7fRhMQ/Marvel-Universe-Home.png "Marvel-Universe-Home")
 
